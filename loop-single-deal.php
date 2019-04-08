@@ -1,3 +1,8 @@
+<?php
+/**
+ * Deal landing page template
+ **/
+
 if (have_posts()) {
     the_post();
 
