@@ -4,10 +4,60 @@ Theme URI: 		http://themeforest.net/user/tagDiv/portfolio
 Description:    Child theme made by tagDiv
 Author:         tagDiv
 Author URI: 	http://themeforest.net/user/tagDiv/portfolio
-Template:       Newspaper                             
+Template:       Newspaper
 Version:        9.6.1
 */
 
 @import url("../Newspaper/style.css");
 
+.deals-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.single-deal {
+    justify-content: space-between;
+    width: 100%;
+    min-width: 320px;
+    margin: 0 auto 32px auto;
+    padding:16px;
+    box-shadow: rgba(0,0,0,.1) 1px 1px 5px;
+    border-radius: 10px;
+    border: 1px rgba(0,0,0,.1) solid;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.single-deal > h3 {
+    margin-top:5px;
+    text-align:center;
+}
+
+.single-deal > h3 > a {
+    text-decoration:none;
+    color:#222;
+    font-size:1.3em;
+    font-weight: bold;
+    text-align:center;
+    display:block;
+}
+
+.btn-deal-redeem {
+    color:#FFF;
+    padding:16px;
+    width:100%;
+    display: block;
+    border-radius:6px;
+    font-size: 1em;
+    background:#6dab3c;
+    border:1px rgba(0,0,0,.1) solid;
+    text-align:center;
+}
+
+@media screen and (min-width:600px) {
+    .single-deal {
+        width: 24%;
+        flex-basis: 25%;
+    }
+}

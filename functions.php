@@ -43,7 +43,11 @@ function create_nr_deals() {
          ),
          'public' => true,
          'has_archive' => true,
-         'rewrite' => array('slug' => 'deals'),
+         'rewrite' => array('slug' => 'deal'),
+         'menu_icon' => 'dashicons-carrot',
+         'menu_position' => 4,
+         'supports' => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail' ),
+         'description' => 'Deals, coupons and discounts'
        )
      );
    }
