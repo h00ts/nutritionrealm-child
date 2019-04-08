@@ -31,3 +31,20 @@ function execute_php($html){
      }
      return $html;
 }
+
+/* Author: h00ts */
+/* Register: Deals post type */
+function create_nr_deals() {
+     register_post_type( 'nr_deals',
+       array(
+         'labels' => array(
+           'name' => __( 'Deals' ),
+           'singular_name' => __( 'Deal' )
+         ),
+         'public' => true,
+         'has_archive' => true,
+         'rewrite' => array('slug' => 'deals'),
+       )
+     );
+   }
+   add_action( 'init', 'create_nr_deals' );
