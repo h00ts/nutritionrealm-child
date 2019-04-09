@@ -63,7 +63,6 @@ if($loop_sidebar_position == 'sidebar_left') {
                             </div>
                             <h4 style="text-align:center;">Looking for more?</h4>
                             <a href="/deals" class="btn-alldeals">View All Deals</a>
-                            <br><br>
                             </div>
                         </div>
 

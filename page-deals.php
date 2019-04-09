@@ -50,6 +50,7 @@ if ($td_use_page_builder) {
                     ?>
                     <div class="deals-wrap">
                         <?php
+
                         $args = array( 'post_type' => 'nr_deals', 'posts_per_page' => 30 );
                         $loop = new WP_Query( $args );
                         while ( $loop->have_posts() ) : $loop->the_post();
@@ -59,7 +60,10 @@ if ($td_use_page_builder) {
                             <h3><a href="<?php the_permalink(); ?>"><?php the_field('partnership_deal'); ?></a></h3>
                             <p><?php the_excerpt(); ?></p>
                             <p>Use code <strong><?php the_field('coupon_code') ?></strong> at checkout.</p>
+                            <div>
                             <a href="<?php the_field('coupon_url'); ?>" class="btn-deal-redeem" target="_blank">Redeem Now</a>
+                            <p style="margin-top:16px;margin-bottom:0;"><?php echo get_the_term_list( $post->ID, 'partnership', 'More by <a href="'.$term_link.'">', ', ', '</a>' ) ?></p>
+                            </div>
                             </div>
                         <?php
                         endwhile;
