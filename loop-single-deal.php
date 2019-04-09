@@ -9,17 +9,11 @@ if (have_posts()) {
     $td_mod_single = new td_module_single($post);
 
     ?>
-
-
     <article id="post-<?php echo $td_mod_single->post->ID;?>" class="<?php echo join(' ', get_post_class());?>" <?php echo $td_mod_single->get_item_scope();?>>
         <div class="td-post-header">
-
-            Deals, Coupons & Discounts
-
             <header class="td-post-title">
+            <h3 style="color:#777">Deals, Coupons & Discounts</h3>
                 <?php echo $td_mod_single->get_title();?>
-
-
                 <?php if (!empty($td_mod_single->td_post_theme_settings['td_subtitle'])) { ?>
                     <p class="td-post-sub-title"><?php echo $td_mod_single->td_post_theme_settings['td_subtitle'];?></p>
                 <?php } ?>
@@ -48,13 +42,15 @@ if (have_posts()) {
 
             <?php echo $td_mod_single->get_content();?>
 
-            <a href="<?php the_field('coupon_url'); ?>" class="btn-deal-redeem">Redeem Now</a>
         </div>
 
 
-       <!-- <footer>
+       <footer>
+       <p>Use code <strong><?php the_field('coupon_code') ?></strong> at checkout.</p>
+       <a href="<?php the_field('coupon_url'); ?>" class="btn-deal-redeem" target="_blank">Redeem Now</a>
+       <br><br><br>
             <?php // echo $td_mod_single->get_social_sharing_bottom(); ?>
-        </footer> /.post -->
+        </footer>
 
     </article>
 

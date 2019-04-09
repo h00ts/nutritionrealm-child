@@ -58,7 +58,8 @@ if ($td_use_page_builder) {
                             <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
                             <h3><a href="<?php the_permalink(); ?>"><?php the_field('partnership_deal'); ?></a></h3>
                             <p><?php the_excerpt(); ?></p>
-                            <a href="<?php the_field('coupon_url'); ?>" class="btn-deal-redeem">Redeem Now</a>
+                            <p>Use code <strong><?php the_field('coupon_code') ?></strong> at checkout.</p>
+                            <a href="<?php the_field('coupon_url'); ?>" class="btn-deal-redeem" target="_blank">Redeem Now</a>
                             </div>
                         <?php
                         endwhile;

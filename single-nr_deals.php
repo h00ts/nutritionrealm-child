@@ -27,7 +27,7 @@ $td_mod_single = new td_module_single($post);
                                 ?>
                             </div>
                         </div>
-                        <div class="td-pb-span4 td-main-sidebar" role="complementary">
+                        <div class="td-pb-span4 td-main-sidebar" style="padding-top:32px;" role="complementary">
                             <div class="td-ss-main-sidebar">
                                 <?php get_sidebar(); ?>
                             </div>
@@ -44,7 +44,7 @@ $td_mod_single = new td_module_single($post);
                             ?>
                         </div>
                     </div>
-	                <div class="td-pb-span4 td-main-sidebar" role="complementary">
+	                <div class="td-pb-span4 td-main-sidebar" style="padding-top:32px;" role="complementary">
 		                <div class="td-ss-main-sidebar">
 			                <?php get_sidebar(); ?>
 		                </div>
@@ -54,7 +54,7 @@ $td_mod_single = new td_module_single($post);
 
                 case 'no_sidebar':
                     ?>
-                    <div class="td-pb-span12 td-main-content" role="main">
+                    <div class="td-pb-span8 td-main-content" role="main">
                         <div class="td-ss-main-content">
                             <?php
                             locate_template('loop-single-deal.php', true);
