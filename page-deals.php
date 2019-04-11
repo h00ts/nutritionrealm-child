@@ -20,29 +20,34 @@ if (!empty($td_page['td_sidebar_position'])) {
     $loop_sidebar_position = $td_page['td_sidebar_position'];
 }
 
-// sidebar position used to align the breadcrumb on sidebar left + sidebar first on mobile issue
-$td_sidebar_position = '';
-if($loop_sidebar_position == 'sidebar_left') {
-	$td_sidebar_position = 'td-sidebar-left';
-}
-
-// check if buddypress is active
-$is_buddypress_template = function_exists( 'is_buddypress' ) ? is_buddypress() : false;
-
-
-/**
- * detect the page builder
- */
-$td_use_page_builder = td_global::is_page_builder_content();
-
-
-
-if ($td_use_page_builder) {
-
     // the page is rendered using the page builder template (no sidebars)
-    if (have_posts()) { ?>
-        <?php while ( have_posts() ) : the_post(); ?>
+    if (have_posts()) {
+        while ( have_posts() ) : the_post();
+?>
+<h3 style="color:#777;text-align:center;">Deals, Coupons & Discounts</h3>
+<div class="premium-slider">
 
+</div>
+<div class="deal-categories">
+    <a href="/deals" style="border-bottom: 5px solid rgb(71,193,191);color:#333;">All Deals</a>
+<?php
+$terms = get_terms(
+    array(
+        'taxonomy'   => 'deal_categories',
+        'hide_empty' => false,
+    )
+);
+
+if ( ! empty( $terms ) && is_array( $terms ) ) {
+    // Run a loop and print them all
+    foreach ( $terms as $term ) { ?>
+        <a href="<?php echo esc_url( get_term_link( $term ) ) ?>">
+            <?php echo $term->name; ?>
+        </a><?php
+    }
+}
+?>
+</div>
             <div class="td-main-content-wrap td-main-page-wrap td-container-wrap">
                 <div class="<?php if (!td_util::tdc_is_installed()) { echo 'td-container '; } ?>tdc-content-wrap">
                     <?php
@@ -50,19 +55,20 @@ if ($td_use_page_builder) {
                     ?>
                     <div class="deals-wrap">
                         <?php
-
                         $args = array( 'post_type' => 'nr_deals', 'posts_per_page' => 30 );
                         $loop = new WP_Query( $args );
                         while ( $loop->have_posts() ) : $loop->the_post();
                         ?>
                             <div class="single-deal">
                             <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+                            <div>
                             <h3><a href="<?php the_permalink(); ?>"><?php the_field('partnership_deal'); ?></a></h3>
                             <p><?php the_excerpt(); ?></p>
                             <p>Use code <strong><?php the_field('coupon_code') ?></strong> at checkout.</p>
+                            </div>
                             <div>
                             <a href="<?php the_field('coupon_url'); ?>" class="btn-deal-redeem" target="_blank">Redeem Now</a>
-                            <p style="margin-top:16px;margin-bottom:0;"><?php echo get_the_term_list( $post->ID, 'partnership', 'More by <a href="'.$term_link.'">', ', ', '</a>' ) ?></p>
+                            <p style="margin-top:4px;margin-bottom:0;font-size:10px;overflow:hidden;"><?php echo get_the_term_list( $post->ID, 'partnership', 'More by <a href="'.$term_link.'">', ', ', '</a>' ) ?></p>
                             </div>
                             </div>
                         <?php
@@ -70,141 +76,16 @@ if ($td_use_page_builder) {
                         ?>
                     </div>
                 </div>
-            </div> <!-- /.td-main-content-wrap -->
+            </div>
 
-
-        <?php endwhile; ?>
-    <?php }
-} else {
-
-    //no page builder detected, we load a default page template with sidebar / no sidebar
-    ?>
-
-
-<div class="td-main-content-wrap td-container-wrap">
-    <div class="td-container tdc-content-wrap <?php echo $td_sidebar_position; ?>">
-        <div class="td-crumb-container">
-            <?php echo td_page_generator::get_page_breadcrumbs(get_the_title()); ?>
+<?php
+        endwhile;
+    }
+?>
         </div>
-        <div class="td-pb-row">
-            <?php
-            switch ($loop_sidebar_position) {
-                default:
-                    ?>
-                        <div class="td-pb-span8 td-main-content" role="main">
-                            <div class="td-ss-main-content">
-                                <?php
-                                if (have_posts()) {
-                                    while ( have_posts() ) : the_post();
-                                        ?>
-                                        <div class="td-page-header">
-                                            <h1 class="entry-title td-page-title">
-                                                <span><?php the_title() ?></span>
-                                            </h1>
-                                        </div>
-                                        <div class="td-page-content">
-                                        <?php
-                                            the_content();
-                                    endwhile;//end loop
-
-                                }
-                                ?>
-                                </div>
-                                <?php
-                                //Display comments when we are not on buddypress template; when buddypress is true do nothing
-                                if ($is_buddypress_template === false) {
-                                    if($td_enable_or_disable_page_comments == 'show_comments') {
-                                        comments_template('', true);
-                                    }
-                                } ?>
-                            </div>
-                        </div>
-                        <div class="td-pb-span4 td-main-sidebar" role="complementary">
-                            <div class="td-ss-main-sidebar">
-                                <?php get_sidebar(); ?>
-                            </div>
-                        </div>
-                    <?php
-                    break;
-
-                case 'sidebar_left':
-                    ?>
-                    <div class="td-pb-span8 td-main-content <?php echo $td_sidebar_position; ?>-content" role="main">
-                        <div class="td-ss-main-content">
-                            <?php
-
-                            if (have_posts()) {
-                                while ( have_posts() ) : the_post();
-                                    ?>
-                                    <div class="td-page-header">
-                                        <h1 class="entry-title td-page-title">
-                                            <span><?php the_title() ?></span>
-                                        </h1>
-                                    </div>
-                                    <div class="td-page-content">
-                                    <?php
-                                    the_content();
-                                endwhile; //end loop
-                            }
-                            ?>
-                            </div>
-                            <?php
-                            //Display comments when we are not on buddypress template; when buddypress is true do nothing
-                            if ($is_buddypress_template === false) {
-                                if($td_enable_or_disable_page_comments == 'show_comments') {
-                                    comments_template('', true);
-                                }
-                            } ?>
-                        </div>
-                    </div>
-	                <div class="td-pb-span4 td-main-sidebar" role="complementary">
-		                <div class="td-ss-main-sidebar">
-			                <?php get_sidebar(); ?>
-		                </div>
-	                </div>
-                    <?php
-                    break;
-
-                case 'no_sidebar':
-                    ?>
-                    <div class="td-pb-span12 td-main-content" role="main">
-
-                        <?php
-                        if (have_posts()) {
-                            while ( have_posts() ) : the_post();
-                                ?>
-                                <div class="td-page-header">
-                                    <h1 class="entry-title td-page-title">
-                                        <span><?php the_title() ?></span>
-                                    </h1>
-                                </div>
-                                <div class="td-page-content">
-                                <?php
-                                the_content();
-                            endwhile; //end loop
-                        }
-                        ?>
-                        </div>
-                        <?php
-                        //Display comments when we are not on buddypress template; when buddypress is true do nothing
-                        if ($is_buddypress_template === false) {
-                            if($td_enable_or_disable_page_comments == 'show_comments') {
-                                comments_template('', true);
-                            }
-                        } ?>
-                    </div>
-                    <?php
-                    break;
-            }
-            ?>
-        </div> <!-- /.td-pb-row -->
-    </div> <!-- /.td-container -->
-</div> <!-- /.td-main-content-wrap -->
+    </div>
+</div>
 
     <?php
-}
-
-
-
 
 get_footer();

@@ -32,6 +32,9 @@ function execute_php($html){
      return $html;
 }
 
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
+
 /* Author: h00ts */
 /* Register: Deals post type */
 /* Use Advanced Custom Fields plug-in to add custom fields */
@@ -76,6 +79,7 @@ function create_nr_deals_custom_post_type() {
 }
 add_action( 'init', 'create_nr_deals_custom_post_type', 0 );
 add_action( 'init', 'create_nr_deals_custom_taxonomy', 0 );
+add_action( 'init', 'create_nr_deals_categories_taxonomy', 0 );
 
 function create_nr_deals_custom_taxonomy() {
 
@@ -94,11 +98,41 @@ function create_nr_deals_custom_taxonomy() {
   );
 
   register_taxonomy('partnership',array('nr_deals'), array(
-    'hierarchical' => true,
+		'hierarchical' => false,
+		'parent_item'  => null,
+		'parent_item_colon' => null,
     'labels' => $labels,
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 'slug' => 'deals' ),
+  ));
+}
+
+function create_nr_deals_categories_taxonomy() {
+
+  $labels = array(
+    'name' => _x( 'Categories', 'taxonomy general name' ),
+    'singular_name' => _x( 'Category', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Category' ),
+    'all_items' => __( 'All Categories' ),
+    'parent_item' => __( 'Parent Category' ),
+    'parent_item_colon' => __( 'Parent Category:' ),
+    'edit_item' => __( 'Edit Category' ),
+    'update_item' => __( 'Update Category' ),
+    'add_new_item' => __( 'Add New Category' ),
+    'new_item_name' => __( 'New Category Name' ),
+    'menu_name' => __( 'Categories' ),
+  );
+
+  register_taxonomy('deal_categories',array('nr_deals'), array(
+		'hierarchical' => false,
+		'parent_item'  => null,
+		'parent_item_colon' => null,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'deals/type' ),
   ));
 }

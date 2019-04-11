@@ -1,40 +1,73 @@
 /*
-Theme Name:     Newspaper Child theme
-Theme URI: 		http://themeforest.net/user/tagDiv/portfolio
-Description:    Child theme made by tagDiv
-Author:         tagDiv
-Author URI: 	http://themeforest.net/user/tagDiv/portfolio
-Template:       Newspaper
-Version:        9.6.1
+Theme Name: Newspaper Child theme
+Theme URI:  http://themeforest.net/user/tagDiv/portfolio
+Description:    Child theme made by h00ts
+Author: h00ts
+Author URI: http://themeforest.net/user/tagDiv/portfolio
+Template:   Newspaper
+Version:    9.6.1
 */
 
 @import url("../Newspaper/style.css");
 
+.deal-categories {
+    margin: 0 auto;
+    width:100%;
+    max-width:1280px;
+    background:#FFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.deal-categories a {
+    border-bottom:5px solid #FFF;
+    padding:4px;
+    margin: 0 4px;
+    color:rgb(71,193,191);
+}
+
+.deals-slider {
+    margin:0 auto;
+
+}
+
 .deals-wrap {
     display: flex;
+    justify-content: space-around;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
 .single-deal {
     justify-content: space-between;
-    width: 100%;
-    min-width: 320px;
-    margin: 0 auto 32px auto;
-    padding:16px;
-    box-shadow: rgba(0,0,0,.1) 1px 1px 5px;
-    border-radius: 10px;
-    border: 1px rgba(0,0,0,.1) solid;
-    display: flex;
+    width: 95%;
+    padding:8px;
+    min-width: 200px;
+    margin: 0 4px 32px 4px;
+    /*box-shadow: rgba(0,0,0,.1) 1px 1px 10px;
+    border-radius: 5px;
+    border: 1px rgba(0,0,0,.1) solid;*/
     flex-direction: column;
     text-align: center;
+    display:flex;
 }
 
-.single-deal > h3 {
-    margin-top:16px;
+.single-deal h3 {
+    margin:8px auto;
     text-align:center;
+    font-size:1em;
+    font-weight:bold;
 }
 
-.single-deal > h3 > a {
+.single-deal p {
+    font-size:.8em;
+    margin-top:0;
+    margin-bottom:8px;
+}
+
+.single-deal h3 a {
     text-decoration:none;
     color:#222;
     font-size:1.3em;
@@ -45,10 +78,10 @@ Version:        9.6.1
 
 .btn-deal-redeem {
     color:#FFF;
-    padding:16px;
+    padding:8px;
     width:100%;
     display: block;
-    border-radius:6px;
+    border-radius:3px;
     font-size: 1em;
     background:#6dab3c;
     border:1px rgba(0,0,0,.1) solid;
@@ -68,9 +101,26 @@ Version:        9.6.1
     margin:0 auto 32px auto;
 }
 
-@media screen and (min-width:600px) {
+@media screen and (max-width: 400px) {
+    .deals-wrap {
+        display:block;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .single-deal {
+        width: 49%;
+    }
+}
+
+@media screen and (min-width: 960px) {
     .single-deal {
         width: 24%;
-        flex-basis: 25%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .single-deal {
+        width: 18%;
     }
 }
