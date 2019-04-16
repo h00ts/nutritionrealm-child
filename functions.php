@@ -68,7 +68,7 @@ function create_nr_deals_custom_post_type() {
 		'has_archive'         => true,
 		'can_export'          => true,
 		'exclude_from_search' => false,
-	        'yarpp_support'       => true,
+	  'yarpp_support'       => true,
 		'publicly_queryable'  => true,
     'capability_type'     => 'page',
     'rewrite' => array('slug' => 'deal'),
@@ -133,6 +133,15 @@ function create_nr_deals_categories_taxonomy() {
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true,
-    'rewrite' => array( 'slug' => 'deals/type' ),
+    'rewrite' => array( 'slug' => 'deals/category' ),
   ));
 }
+
+
+function nr_enqueue_slider_styles() {
+  if ( is_page_template( 'page-deals.php' ) || is_tax( 'deal_categories' ) ) {
+      wp_enqueue_style( 'page-deals', 'https://unpkg.com/flickity@2/dist/flickity.min.css' );
+  }
+}
+add_action( 'wp_enqueue_scripts', 'nr_enqueue_slider_styles' );
+
