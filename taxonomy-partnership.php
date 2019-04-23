@@ -47,7 +47,7 @@ if (empty($loop_module_id)) {
                         ?>
 
                             <div class="single-deal">
-                            <a href="<?php the_permalink(); ?>" target="_blank"><img src="<?php the_field('image') ?>" alt="<?php the_title(); ?>"></a>
+                            <a href="<?php the_field('coupon_url'); ?>" target="_blank"><img src="<?php the_field('image') ?>" alt="<?php the_title(); ?>"></a>
                             <div>
                             <h3><?php the_field('partnership_deal'); ?></h3>
                             <p><?php the_excerpt(); ?></p>

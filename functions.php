@@ -35,8 +35,51 @@ function execute_php($html){
 remove_filter( 'the_content', 'wpautop' );
 remove_filter( 'the_excerpt', 'wpautop' );
 
-/* Author: h00ts */
-/* Register: Deals post type */
+/* Author: @h00ts */
+/* Custom post types */
+
+/* Define: Experts post type */
+function create_nr_experts_custom_post_type() {
+	$labels = array(
+		'name'                => __( 'Experts' ),
+		'singular_name'       => __( 'Expert'),
+		'menu_name'           => __( 'Experts'),
+		'parent_item_colon'   => __( 'Parent Expert'),
+		'all_items'           => __( 'All Experts'),
+		'view_item'           => __( 'View Expert'),
+		'add_new_item'        => __( 'Add New Expert'),
+		'add_new'             => __( 'Add New'),
+		'edit_item'           => __( 'Edit Expert'),
+		'update_item'         => __( 'Update Expert'),
+		'search_items'        => __( 'Search Expert'),
+		'not_found'           => __( 'Not Found'),
+		'not_found_in_trash'  => __( 'Not found in Trash')
+	);
+	$args = array(
+		'label'               => __( 'expert'),
+		'description'         => __( 'Experts'),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields'),
+		'public'              => true,
+		'hierarchical'        => false,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'has_archive'         => true,
+		'can_export'          => true,
+		'exclude_from_search' => false,
+	  'yarpp_support'       => true,
+		'publicly_queryable'  => true,
+    'capability_type'     => 'page',
+    'rewrite' => array('slug' => 'expert'),
+    'menu_icon' => 'dashicons-id',
+    'menu_position' => 4,
+);
+	register_post_type( 'nr_experts', $args );
+}
+
+/* Define: Deals post type */
 /* Use Advanced Custom Fields plug-in to add custom fields */
 function create_nr_deals_custom_post_type() {
 	$labels = array(
@@ -73,13 +116,19 @@ function create_nr_deals_custom_post_type() {
     'capability_type'     => 'page',
     'rewrite' => array('slug' => 'deal'),
     'menu_icon' => 'dashicons-carrot',
-    'menu_position' => 4,
+    'menu_position' => 5,
 );
 	register_post_type( 'nr_deals', $args );
 }
+
+/* Register Custom Post types & taxonomies */
+add_action( 'init', 'create_nr_experts_custom_post_type', 0 );
 add_action( 'init', 'create_nr_deals_custom_post_type', 0 );
 add_action( 'init', 'create_nr_deals_custom_taxonomy', 0 );
 add_action( 'init', 'create_nr_deals_categories_taxonomy', 0 );
+
+
+/* Define: Custom Taxonomies */
 
 function create_nr_deals_custom_taxonomy() {
 
@@ -144,4 +193,3 @@ function nr_enqueue_slider_styles() {
   }
 }
 add_action( 'wp_enqueue_scripts', 'nr_enqueue_slider_styles' );
-

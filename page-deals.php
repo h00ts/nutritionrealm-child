@@ -78,8 +78,8 @@ if ( ! empty( $terms ) && is_array( $terms ) ) {
                         while ( $loop->have_posts() ) : $loop->the_post();
                         ?>
                             <div class="single-deal">
-                                <a href="<?php the_field('coupon_url'); ?>" target="_blank"><img src="<?php the_field('image') ?>" alt="<?php the_title(); ?>"></a>
                                 <div>
+                                <a href="<?php the_field('coupon_url'); ?>" target="_blank"><img src="<?php the_field('image') ?>" alt="<?php the_title(); ?>"></a>
                                 <h3><?php the_field('partnership_deal'); ?></h3>
                                 <p><?php the_excerpt(); ?></p>
                                 <p>Use code <strong><?php the_field('coupon_code') ?></strong> at checkout.</p>
