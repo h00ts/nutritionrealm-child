@@ -12,16 +12,18 @@ $td_mod_single = new td_module_single($post);
 
 ?>
 <div class="td-main-content-wrap td-container-wrap">
+
     <div class="td-container td-post-template-1 <?php echo $td_sidebar_position; ?>">
         <div class="td-pb-row">
             <?php
+            //the default template
             switch ($loop_sidebar_position) {
                 default:
                     ?>
                         <div class="td-pb-span8 td-main-content" role="main">
                             <div class="td-ss-main-content">
                                 <?php
-                                locate_template('loop-single-deal.php', true);
+                                locate_template('loop-single-expert.php', true);
                                 ?>
                             </div>
                         </div>
@@ -32,12 +34,13 @@ $td_mod_single = new td_module_single($post);
                         </div>
                     <?php
                     break;
+
                 case 'sidebar_left':
                     ?>
                     <div class="td-pb-span8 td-main-content <?php echo $td_sidebar_position; ?>-content" role="main">
                         <div class="td-ss-main-content">
                             <?php
-                            locate_template('loop-single-deal.php', true);
+                            locate_template('loop-single-expert.php', true);
                             ?>
                         </div>
                     </div>
@@ -54,7 +57,7 @@ $td_mod_single = new td_module_single($post);
                     <div class="td-pb-span8 td-main-content" role="main">
                         <div class="td-ss-main-content">
                             <?php
-                            locate_template('loop-single-deal.php', true);
+                            locate_template('loop-single-expert.php', true);
                             ?>
                         </div>
                     </div>

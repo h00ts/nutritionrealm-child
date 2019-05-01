@@ -13,6 +13,8 @@ if (have_posts()) {
     $args = array(
         'post_type' => 'nr_deals',
         'posts_per_page' => -1,
+        'orderby' => 'date',
+        'order' => 'ASC',
         'meta_query' => array(
           array(
             'key' => 'premium',
@@ -23,31 +25,67 @@ if (have_posts()) {
       $the_query = new WP_Query($args);
       if ($the_query->have_posts()) {
        ?>
-          <div class="deals-slider">
+          <div class="carousel deals-slider" data-flickity='{"cellAlign": "left", "wrapAround": true, "autoPlay": 4000, "bgLazyLoad": true, "pageDots": false, "draggable": false}'>
             <?php
               while ($the_query->have_posts()) {
                 $the_query->the_post();
                 ?>
-                <div class="gallery-cell" id="slide-1" style="background-image:url('<?php if ( has_post_thumbnail() ) {the_post_thumbnail_url();}  ?>');">
+                <div class="carousel-cell" data-flickity-bg-lazyload="<?php if ( has_post_thumbnail() ) {the_post_thumbnail_url();}  ?>">
                     <a href="<?php the_field('coupon_url'); ?>" target="_blank"><div class="slider-content">
                      <h4 class="slider-title"><span><?php the_field('partnership_deal') ?></span></h4>
-                     </div><div style="text-align:center;">
+                     </div>
+                     <div style="text-align:center;">
                      <p class="slider-coupon"><span>Use code <strong><?php the_field('coupon_code') ?> </strong> at checkout.</span></p>
-                    </div></a>
+                    </div>
+                    </a>
                 </div>
                 <?php
               }
+
+    wp_reset_postdata();
+}
             ?>
           </div>
         <?php
+            $args = array(
+                'post_type' => 'nr_deals',
+                'posts_per_page' => -1,
+                'orderby' => 'date',
+                'order' => 'ASC',
+                'meta_query' => array(
+                  array(
+                    'key' => 'premium',
+                    'value' => true
+                  )
+                )
+              );
+              $the_query = new WP_Query($args);
+            if ($the_query->have_posts()) {
+            ?>
+               <div class="carousel deals-slider-nav" data-flickity='{ "asNavFor": ".deals-slider", "contain": true, "pageDots": false, "prevNextButtons": false, "adaptiveHeight": true, "draggable": false, "imagesLoaded": true }'>
+                 <?php
+                   while ($the_query->have_posts()) {
+                     $the_query->the_post();
+                     $terms = get_the_terms( $post->ID , 'partnership' );
+                     ?>
+                     <div class="carousel-cell" style="background-image:url(<?php the_field('white_logo', $terms[0]); ?>)"></div>
+                     <?php
+                   }
+                 ?>
+               </div>
+             <?php
+           }
+
         wp_reset_postdata();
-      }
+
+
     ?>
 
 
 
+<div class="deal-cat-wrap">
 <div class="deal-categories">
-    <a href="/deals" style="border-bottom: 3px solid rgb(71,193,191);color:#333;">All Deals</a>
+    <a href="/deals" class="deal-cat-active">All Deals</a>
 <?php
 $terms = get_terms(
     array(
@@ -57,7 +95,6 @@ $terms = get_terms(
 );
 
 if ( ! empty( $terms ) && is_array( $terms ) ) {
-    // Run a loop and print them all
     foreach ( $terms as $term ) { ?>
         <a href="<?php echo esc_url( get_term_link( $term ) ) ?>">
             <?php echo $term->name; ?>
@@ -66,6 +103,7 @@ if ( ! empty( $terms ) && is_array( $terms ) ) {
 }
 ?>
 </div>
+</div>
             <div class="td-main-content-wrap td-main-page-wrap td-container-wrap">
                 <div class="<?php if (!td_util::tdc_is_installed()) { echo 'td-container '; } ?>tdc-content-wrap">
                     <?php
@@ -73,7 +111,7 @@ if ( ! empty( $terms ) && is_array( $terms ) ) {
                     ?>
                     <div class="deals-wrap">
                         <?php
-                        $args = array( 'post_type' => 'nr_deals', 'posts_per_page' => 30 );
+                        $args = array( 'post_type' => 'nr_deals', 'orderby' => 'date', 'order' => 'ASC', 'posts_per_page' => -1 );
                         $loop = new WP_Query( $args );
                         while ( $loop->have_posts() ) : $loop->the_post();
                         ?>
@@ -105,16 +143,7 @@ if ( ! empty( $terms ) && is_array( $terms ) ) {
 </div>
 
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-<script>
-    var flkty = new Flickity( '.deals-slider', {
-        cellAlign: 'left',
-        contain: true,
-        wrapAround: true,
-        autoPlay: true
+<script src="https://unpkg.com/flickity-bg-lazyload@1/bg-lazyload.js"></script>
 
-    });
-</script>
-
-    <?php
-
+<?php
 get_footer();

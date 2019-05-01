@@ -76,8 +76,8 @@ if (!empty($td_customLogoR)) {
 			<img class="td-retina-data"  data-retina="<?php echo esc_attr($td_customLogoR) ?>" src="<?php echo $td_customLogo?>" alt="<?php echo $td_logo_alt ?>"<?php echo $td_logo_title ?> <?php echo $retina_logo_width ?>/>
 			<span class="td-visual-hidden"><?php bloginfo('name'); ?></span>
 		</a>
-		<div class="td-header-sp-top-menu"><p class="hup_subscribe" id="subscribe_id" style="font-family:Montserrat; font-size: 14px; font-weight: 600;"><i class="td-icon-font td-icon-mail"></i>&nbsp;&nbsp;Subscribe</p></div>
-		
+		<div class="td-header-sp-top-menu"><p class="hup_subscribe" id="subscribe_id" style="font-size: 14px; font-weight: 600;"><i class="td-icon-font td-icon-mail"></i>&nbsp;&nbsp;Subscribe</p></div>
+
 
 
 	<?php

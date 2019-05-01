@@ -86,7 +86,6 @@ if ($custom_post_type == 'event') {
     echo td_page_generator::wrap_end();
 }
 
-
 elseif (empty($td_post_theme_settings['td_post_template'])) {
     // the default single template
 
@@ -104,6 +103,21 @@ elseif (empty($td_post_theme_settings['td_post_template'])) {
                     ?>
                 </div>
                 <div class="span4 column_container td-post-sidebar" role="complementary" itemscope="itemscope" itemtype="<?php echo td_global::$http_or_https?>://schema.org/WPSideBar">
+                <?php
+
+                    $posts = get_field('expert');
+
+                    if( $posts ): ?>
+                        <ul>
+                        <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
+                            <?php setup_postdata($post); ?>
+                            <li>
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                        </ul>
+                        <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+                    <?php endif; ?>
                     <?php get_sidebar(); ?>
                 </div>
             <?php

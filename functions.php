@@ -1,6 +1,4 @@
 <?php
-
-
 /*  ----------------------------------------------------------------------------
     WordPress booster framework - this is our theme framework - all the content and settings are there
     It is not necessary to include it in the child theme only if you want to use the API
@@ -34,6 +32,7 @@ function execute_php($html){
 
 remove_filter( 'the_content', 'wpautop' );
 remove_filter( 'the_excerpt', 'wpautop' );
+remove_filter ('acf_the_content', 'wpautop');
 
 /* Author: @h00ts */
 /* Custom post types */
@@ -72,7 +71,7 @@ function create_nr_experts_custom_post_type() {
 	  'yarpp_support'       => true,
 		'publicly_queryable'  => true,
     'capability_type'     => 'page',
-    'rewrite' => array('slug' => 'expert'),
+    'rewrite' => array('slug' => 'experts'),
     'menu_icon' => 'dashicons-id',
     'menu_position' => 4,
 );
@@ -117,7 +116,7 @@ function create_nr_deals_custom_post_type() {
     'rewrite' => array('slug' => 'deal'),
     'menu_icon' => 'dashicons-carrot',
     'menu_position' => 5,
-);
+  );
 	register_post_type( 'nr_deals', $args );
 }
 
