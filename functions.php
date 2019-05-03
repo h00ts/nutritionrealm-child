@@ -4,7 +4,7 @@
     It is not necessary to include it in the child theme only if you want to use the API
 */
 if (!defined('TD_THEME_WP_BOOSTER')) {
-	include TEMPLATEPATH . '/includes/td_wordpres_booster.php';
+	include TEMPLATEPATH . '/includes/td_wordpress_booster.php';
 }
 
 //Gets post cat slug and looks for single-[cat slug].php and applies it

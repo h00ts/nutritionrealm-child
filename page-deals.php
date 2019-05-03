@@ -25,17 +25,18 @@ if (have_posts()) {
       $the_query = new WP_Query($args);
       if ($the_query->have_posts()) {
        ?>
-          <div class="carousel deals-slider" data-flickity='{"cellAlign": "left", "wrapAround": true, "autoPlay": 4000, "bgLazyLoad": true, "pageDots": false, "draggable": false}'>
+          <div class="carousel deals-slider" data-flickity='{"cellAlign": "left", "wrapAround": true, "autoPlay": false, "bgLazyLoad": true, "pageDots": false, "draggable": false}'>
             <?php
               while ($the_query->have_posts()) {
                 $the_query->the_post();
                 ?>
                 <div class="carousel-cell" data-flickity-bg-lazyload="<?php if ( has_post_thumbnail() ) {the_post_thumbnail_url();}  ?>">
                     <a href="<?php the_field('coupon_url'); ?>" target="_blank"><div class="slider-content">
+                      <img src="<?php the_field('image') ?>" alt="<?php the_title() ?>" style="max-width:280px;max-height:180px;display:block;text-align:center;margin:0 auto;">
                      <h4 class="slider-title"><span><?php the_field('partnership_deal') ?></span></h4>
-                     </div>
-                     <div style="text-align:center;">
+                     <div>
                      <p class="slider-coupon"><span>Use code <strong><?php the_field('coupon_code') ?> </strong> at checkout.</span></p>
+                     </div>
                     </div>
                     </a>
                 </div>

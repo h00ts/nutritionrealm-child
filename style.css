@@ -11,7 +11,7 @@ Version:    9.6.1
 @import url("../Newspaper/style.css");
 
 html, body, div, p, a {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 ul.sf-menu > .td-menu-item > a, .td-category a {
@@ -40,16 +40,106 @@ ul.sf-menu > .td-menu-item > a, .td-category a {
 }
 
 .td-post-sharing-top {
-    margin-top:30px;
+    bottom:0;
     position: fixed;
-    margin-left:8px;
-    width: 100%;
-    max-width: 330px;
+    margin-left: 0;
+    z-index:1000;
+}
+
+.td-social-but-icon {
+    background:rgba(255,255,255,.8);
 }
 
 .td-social-network {
     display: block;
 }
+
+.td-social-network {
+    margin: 0;
+}
+
+.td-ps-notext .td-social-network .td-social-but-icon {
+    border-radius: 0;
+}
+
+/***
+
+FLEX LAYOUTS
+
+***/
+
+.flex-wrap {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+
+/***
+
+POSTS
+
+***/
+
+
+.sponsored-post {
+    color:#FFF;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.sponsored-post img {
+    padding:8px;
+    height:70px;
+    vertical-align: middle;
+}
+
+.sponsor-cta, .sponsor-cta:link {
+    border-bottom:3px solid #df9800;
+    border-top: 0px solid rgba(242,165,0,1);
+    border-radius:5px;
+    margin:0 auto 1em auto;
+    display:block;
+    padding:8px;
+    background:rgba(255,199,78,1);
+    background:linear-gradient(0deg, rgba(242,165,0,1) 0%, rgba(255,199,78,1) 100%);
+    color:#FFF;
+    text-align:center;
+    line-height:30px;
+    transition-property: border-bottom, border-top;
+    transition-duration: 0.3s;
+    -webkit-transition-property: border-bottom, border-top;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.sponsor-cta:hover, .sponsor-cta:active {
+    background: linear-gradient(0deg, rgba(255,199,78,1) 0%, rgba(255,199,78,1) 100%);
+    border-top: 1px solid rgba(242,165,0,1);
+    border-left: 1px solid rgba(242,165,0,1);
+    border-right: 1px solid rgba(242,165,0,1);
+    border-bottom:2px solid rgba(242,165,0,1);
+}
+
+.sponsor-cta img {
+    padding:0 4px;
+    height:30px;
+    vertical-align:middle;
+    max-width: 100px;
+}
+
+.sponsor-cta.sponsor-mobile {
+    margin-top:16px;
+}
+
+.ez-toc-widget-container .block-title span,  .ez-toc-widget-container .block-title>span {
+    background-color:#2ad2c9;
+    padding:4px 2px 2px 4px;
+}
+
 
 
 /***
@@ -59,15 +149,16 @@ DEALS PAGES
 ***/
 
 .partnership-hero {
-        width:100%;
-        margin: 0 auto;
-        overflow-y:hidden;
-        height: 200px;
-        vertical-align: middle;
-        background: linear-gradient(90deg, rgba(62,193,191,1) 0%, rgba(0,169,80,1) 100%);
-        background-size: cover;
-        background-position: center bottom;
-        box-shadow: 0px 10px 25px -10px rgba(0, 0, 0, 0.5);
+    width:100%;
+    margin: 0 auto;
+    overflow-y:hidden;
+    height: 200px;
+    vertical-align: middle;
+    background: linear-gradient(90deg, rgba(62,193,191,1) 0%, rgba(0,169,80,1) 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
 }
 
 .partnership-description {
@@ -76,6 +167,32 @@ DEALS PAGES
 
 .partnership-description p {
     display:none;
+}
+
+.partner-mobile {
+    margin: 1em 2em;
+    height:180px;
+}
+
+.partner-mobile .exclusive-logo {
+    width:180px;
+}
+
+.partner-sidebar {
+    width: 100%;
+    padding: 0 1em;
+    margin: 0;
+}
+
+.partner-sidebar .exclusive-logo, .partner-sidebar .partner-badge {
+    display:none;
+}
+
+.partner-wrap {
+    justify-content: space-around;
+    max-width:768px;
+    margin:0 auto;
+    width: 100%;
 }
 
 .title-center {
@@ -126,6 +243,7 @@ DEALS PAGES
     background:rgb(71,193,191);
     padding:8px 8px 5px 8px;
     display:inline-block;
+    text-transform: uppercase;
 }
 
 .deal-cat-wrap {
@@ -234,7 +352,7 @@ DEALS PAGES
     flex-direction: column;
     align-content: center;
     background-size: cover;
-    background-position: right top;
+    background-position: center center;
     height:360px;
     width:100%;
     flex-shrink: 0;
@@ -253,9 +371,10 @@ DEALS PAGES
 }
 
 .slider-content {
-    margin: 188px auto 0 auto;
+    margin: 1.5em auto 0 auto;
     text-align:center;
     background-color:transparent;
+    width:100%;
 }
 
 .slider-title {
@@ -306,31 +425,49 @@ DEALS PAGES
     font-size:1.1em;
 }
 
-.exclusive-partner {
-    background:linear-gradient(90deg, rgba(62,193,191,1) 0%, rgba(0,169,80,1) 100%);
-    width:100%;
-    text-align:center;
-}
-
-.exclusive-partner .partner-badge {
+.partner-badge {
     display: block;
-    margin: -12px auto 24px auto;
+    margin: -6px auto 0 auto;
 }
 
-.exclusive-partner .badge {
-    padding: 0 2px;
-    display: inline-block;
+.partner-badge .badge {
+    padding: 0 1px;
+    display: block;
+    width:220px;
+    height:29px;
+    overflow: visible;
     margin: 0 auto;
     border-radius: 5px;
     box-shadow: 0 2px 8px -5px rgba(0,0,0,.3);
     background:#111;
     letter-spacing: 1px;
+    color:#FFF;
+    line-height: 29px;
+    font-size: 1em;
+    text-align:center;
+}
+
+.badge img {
+    height:19px;
+    vertical-align: middle;
+    margin-top:-5px;
 }
 
 .exclusive-logo {
-    width: 100%;
+    width:100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding:0;
+    box-shadow: 0px 10px 25px -10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.exclusive-logo img {
+    width:100%;
+    padding:1.5em;
+    margin:0 auto;
     background:#FFF;
-    padding:8px 0 12px 0;
+    border-radius: 5px;
 }
 
 .exclusive-partner h4 {
@@ -346,7 +483,7 @@ DEALS PAGES
 .premium-link {
     width:100%;
     background:#FFF;
-    padding:16px;
+    padding: 0 1em 1em 1em;
     display:block;
 }
 
@@ -369,18 +506,12 @@ DEALS PAGES
     flex-wrap: wrap;
 }
 
-.deals-wrap-premium {
-    justify-content: space-around;
-    max-width:1080px;
-    margin:0 auto;
-}
-
 .single-deal {
     justify-content: space-between;
     width: 95%;
     padding:8px;
     min-width: 200px;
-    margin: 0 auto 32px auto;
+    margin: 1em auto;
     background:#FFF;
     flex-direction: column;
     text-align: center;
@@ -388,7 +519,7 @@ DEALS PAGES
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
     -webkit-transition-property: box-shadow;
@@ -424,13 +555,15 @@ DEALS PAGES
 
 .btn-deal-redeem {
     color:#FFF;
-    padding:8px;
+    padding:.5em;
     width:100%;
     display: inline-block;
     border-radius:3px;
-    font-size: 1em;
-    background:#2ad2c9;
-    border:1px rgba(0,0,0,.1) solid;
+    font-size: 1.25em;
+    font-weight:bold;
+    text-transform:uppercase;
+    background:#00b140;
+    border:1px dashed #FFF;
     text-align:center;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -441,21 +574,20 @@ DEALS PAGES
 
 .single-premium {
     color:#000;
-    background:#FFF;
+    background: rgb(62,193,191);
+    background: linear-gradient(0deg, rgba(62,193,191,1) 0%, rgba(0,169,80,1) 100%);
     border-radius: 5px;
-    padding:16px;
-    flex-direction: row;
-    max-width: 480px;
-    margin-top:1em;
-    position: sticky
+    padding:1px;
+    max-width: 640px;
+    margin:1.5em auto;
 }
 
 .single-premium h3 {
-    margin:0 0 8px 0;
+    margin:1em 0 .5em 0;
     text-align:left;
     color:rgb(66, 197, 127);
     font-weight: bold;
-    font-size:1.6em;
+    font-size:1.75em;
 }
 
 .single-premium p {
@@ -463,8 +595,44 @@ DEALS PAGES
     font-size:1em;
 }
 
+.single-premium .single-deal-wrap {
+    flex-direction: row;
+    display:flex;
+    background:rgba(255,255,255,.95);
+    padding:0 2em 0 0;
+    border-radius:5px;
+}
+
+.single-deal-img {
+    width:30%;
+}
+
+.single-deal-img a {
+    height:100%;
+    display:block;
+    line-height:0;
+    overflow: hidden;
+    border-radius:5px 0 0 5px;
+}
+
+.single-deal-img img {
+    height:100%;
+    display:block;
+    width:100%;
+    border-radius:5px 0 0 5px;
+}
+
 .single-premium .coupon-content {
-    width:65%;padding:8px;flex-direction:column;justify-content:space-between;display:flex;
+    width:70%;
+    padding:0 0 1.5em 1.5em;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+}
+
+.single-premium .coupon-content p {
+    display: none;
 }
 
 @-webkit-keyframes btn-ripple-out {
@@ -489,13 +657,13 @@ DEALS PAGES
 .btn-deal-redeem:before {
     content: '';
     position: absolute;
-    border: #2ad2c9 solid 6px;
+    border: #00b140 dashed 2px;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
     border-radius:3px;
 }
 .btn-deal-redeem:hover:before, .btn-deal-redeem:focus:before, .btn-deal-redeem:active:before {
@@ -647,14 +815,65 @@ EXPERTS PAGES
         width:75%;
     }
     .single-deal:hover, .single-deal:focus, .single-deal:active {
-        box-shadow: 0 10px 12px -8px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 8px 12px -8px rgba(0, 0, 0, 0.5);
     }
     .deal-categories a {
         width:30%;
     }
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 768px) {
+
+    .flex-wrap {
+        flex-direction: row;
+    }
+
+    .partner-mobile {
+        display:none;
+    }
+
+    .single-premium .coupon-content p {
+        display: block;
+    }
+
+    .partner-sidebar .exclusive-logo, .partner-sidebar .partner-badge {
+        display:block;
+    }
+
+    .partner-sidebar {
+        width: 40%;
+        padding: 0 1em;
+        margin: -100px 0 0 0;
+    }
+
+    .partner-wrap {
+        max-width:768px;
+        margin:1em auto;
+        width: 60%;
+    }
+
+    .btn-deal-redeem {
+        padding:1em;
+    }
+
+    .slider-content {
+        margin: 1em auto 0 17%;
+        text-align:center;
+        background-color:transparent;
+        width:100%;
+    }
+
+    .sponsor-cta.sponsor-mobile {
+        display:none;
+    }
+
+    .td-post-sharing-top {
+        position: fixed;
+        margin-left: 0;
+        width: 100%;
+        max-width: 130px;
+    }
+
     .partnership-hero {
         height: 250px;
     }
@@ -669,13 +888,17 @@ EXPERTS PAGES
         text-align: left;
     }
 
-    .premium-partner-content .partner-description {
-        vertical-align:top;
-        flex-direction: column;
-        width:45%;
+    .partner-description {
         background:#FFF;
         padding:1em;
-        border-radius:5px;
+    }
+
+    .partner-description p {
+        font-size:1em;
+        line-height: 1.5;
+        padding: 0 1.5em;
+        display: block;
+        text-align: justify;
     }
 
     .partnership-description {
@@ -692,9 +915,9 @@ EXPERTS PAGES
     }
 
     .partnership-description p {
-        font-size:1.2em;
+        font-size:1.25em;
         line-height: 1.5;
-        padding:1em;
+        padding:1.5em;
         display: block;
     }
 
@@ -707,29 +930,33 @@ EXPERTS PAGES
         margin: 0 4px 32px 4px;
     }
     .single-premium {
-        width:47%;
+        width:95%;
+        margin: 1.5em auto;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1)
     }
     .single-deal img, .single-expert img {
         width:100%;
     }
     .single-deal:hover, .single-deal:focus, .single-deal:active {
-        box-shadow: 0 10px 12px -8px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 8px 12px -8px rgba(0, 0, 0, 0.5);
     }
     .deal-categories a {
         width:auto;
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 960px) {
 
     .single-deal, .single-expert {
         width: 18%;
     }
     .single-premium {
-        width:47%;
+        width:95%;
+        margin: 1.5em auto;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1)
     }
     .single-deal:hover, .single-deal:focus, .single-deal:active {
-        box-shadow: 0 10px 12px -8px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 8px 12px -8px rgba(0, 0, 0, 0.5);
     }
     .deal-categories a {
         width:auto;
