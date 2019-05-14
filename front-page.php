@@ -63,14 +63,10 @@ $loop_module_id = td_util::get_option('tds_' . $template_id . '_page_layout', 15
    <section class="nr_module nr_ad">
         <div class="nr_sponsors">
             <?php
-
                 $term = get_field('partnership');
-
                 if( $term ): ?>
-
                     <h2><?php echo $term->name; ?></h2>
                     <p><?php echo $term->description; ?></p>
-
                 <?php endif; ?>
                <div class="carousel" data-flickity='{"contain": true, "pageDots": false, "prevNextButtons": false, "adaptiveHeight": true, "draggable": false, "imagesLoaded": true }'>
                  <?php

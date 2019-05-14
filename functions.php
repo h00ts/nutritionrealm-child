@@ -35,6 +35,21 @@ remove_filter( 'the_excerpt', 'wpautop' );
 remove_filter ('acf_the_content', 'wpautop');
 
 /* Author: @h00ts */
+
+// Async load
+function nr_async_scripts($url)
+{
+    if ( strpos( $url, '#asyncload') === false )
+        return $url;
+    else if ( is_admin() )
+        return str_replace( '#asyncload', '', $url );
+    else
+	return str_replace( '#asyncload', '', $url )."' async='async";
+    }
+add_filter( 'clean_url', 'nr_async_scripts', 11, 1 );
+
+
+
 /* Custom post types */
 
 /* Define: Experts post type */
@@ -185,6 +200,10 @@ function create_nr_deals_categories_taxonomy() {
   ));
 }
 
+function nr_enqueue_klavyio() {
+	wp_enqueue_script( 'klavyio', 'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Lpi5jL#asyncload', [], false, true );
+}
+add_action( 'wp_enqueue_scripts', 'nr_enqueue_klavyio' );
 function nr_enqueue_slider_deals() {
   if ( is_page_template( 'page-deals.php' ) || is_tax( 'deal_categories' ) ) {
 			wp_enqueue_style( 'flickity', 'https://unpkg.com/flickity@2/dist/flickity.min.css' );
