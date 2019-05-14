@@ -82,17 +82,17 @@ function create_nr_experts_custom_post_type() {
 /* Use Advanced Custom Fields plug-in to add custom fields */
 function create_nr_deals_custom_post_type() {
 	$labels = array(
-		'name'                => __( 'Deals' ),
-		'singular_name'       => __( 'Deal'),
-		'menu_name'           => __( 'Deals'),
-		'parent_item_colon'   => __( 'Parent Deal'),
-		'all_items'           => __( 'All Deals'),
-		'view_item'           => __( 'View Deal'),
-		'add_new_item'        => __( 'Add New Deal'),
+		'name'                => __( 'Discounts' ),
+		'singular_name'       => __( 'Discount'),
+		'menu_name'           => __( 'Discounts'),
+		'parent_item_colon'   => __( 'Parent Coupon'),
+		'all_items'           => __( 'All Coupons'),
+		'view_item'           => __( 'View Coupon'),
+		'add_new_item'        => __( 'Add New Coupon'),
 		'add_new'             => __( 'Add New'),
-		'edit_item'           => __( 'Edit Deal'),
-		'update_item'         => __( 'Update Deal'),
-		'search_items'        => __( 'Search Deal'),
+		'edit_item'           => __( 'Edit Coupon'),
+		'update_item'         => __( 'Update Coupon'),
+		'search_items'        => __( 'Search Coupon'),
 		'not_found'           => __( 'Not Found'),
 		'not_found_in_trash'  => __( 'Not found in Trash')
 	);
@@ -113,7 +113,7 @@ function create_nr_deals_custom_post_type() {
 	  'yarpp_support'       => true,
 		'publicly_queryable'  => true,
     'capability_type'     => 'page',
-    'rewrite' => array('slug' => 'deal'),
+    'rewrite' => array('slug' => 'deal'), /* change to discounts at some point */
     'menu_icon' => 'dashicons-carrot',
     'menu_position' => 5,
   );
@@ -185,10 +185,22 @@ function create_nr_deals_categories_taxonomy() {
   ));
 }
 
-
-function nr_enqueue_slider_styles() {
+function nr_enqueue_slider_deals() {
   if ( is_page_template( 'page-deals.php' ) || is_tax( 'deal_categories' ) ) {
-      wp_enqueue_style( 'page-deals', 'https://unpkg.com/flickity@2/dist/flickity.min.css' );
+			wp_enqueue_style( 'flickity', 'https://unpkg.com/flickity@2/dist/flickity.min.css' );
+			wp_enqueue_script( 'flickity', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', [], false, true);
+			wp_enqueue_script( 'flickity-lazyload', 'https://unpkg.com/flickity-bg-lazyload@1/bg-lazyload.js', [], false, true);
   }
 }
-add_action( 'wp_enqueue_scripts', 'nr_enqueue_slider_styles' );
+add_action( 'wp_enqueue_scripts', 'nr_enqueue_slider_deals' );
+function nr_enqueue_slider_front_page() {
+  if ( is_front_page() ) {
+			wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.8.1/css/all.css' );
+			wp_enqueue_style( 'flickity', 'https://unpkg.com/flickity@2/dist/flickity.min.css' );
+			wp_enqueue_style( 'flickity-fade', 'https://unpkg.com/flickity-fade@1/flickity-fade.css' );
+			wp_enqueue_script( 'flickity', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', [], false, true);
+			wp_enqueue_script( 'flickity-fade', 'https://unpkg.com/flickity-fade@1/flickity-fade.js', [], false, true);
+			wp_enqueue_script( 'flickity-lazyload', 'https://unpkg.com/flickity-bg-lazyload@1/bg-lazyload.js', [], false, true);
+  }
+}
+add_action( 'wp_enqueue_scripts', 'nr_enqueue_slider_front_page' );

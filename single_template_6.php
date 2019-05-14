@@ -1,5 +1,5 @@
 <?php
-// Template 7 -post-final-7.psd - full image background
+// Template 6 -post-final-7.psd - full image background
 //get the global sidebar position from td_single_template_vars.php
 
 locate_template('includes/wp_booster/td_single_template_vars.php', true);
@@ -48,25 +48,18 @@ echo $td_mod_single->get_social_sharing_top();
     <div class="td-full-screen-header-image-wrap">
 
         <div class="td-container td-post-header">
-            <div class="td-crumb-container"><?php echo td_page_generator::get_single_breadcrumbs($td_mod_single->title); ?></div>
-
+        <div class="td-crumb-container"><a href="/" style="color:#FFF">Home</a></div>
 	        <div class="td-post-header-holder">
 
-            <?php
-            if($sponsor):
-            ?>
-                <div class="sponsored-post">Sponsored by <img src="<?php echo $sponsor ?>" alt="Sponsored post"></div>
-            <?php
-            endif;
-            ?>
+
+                <div class="sponsored-post"> <img src="<?php echo $sponsor ?>" alt="Green Roads"></div>
+
 
 		        <div class="td-parallax-header">
 
 	                <header class="td-post-title">
 
-	                    <?php echo $td_mod_single->get_category(); ?>
-	                    <?php echo $td_mod_single->get_title();?>
-
+                    <?php echo $td_mod_single->get_title(); ?>
 
 	                    <?php if (!empty($td_mod_single->td_post_theme_settings['td_subtitle'])) { ?>
 	                        <p class="td-post-sub-title"><?php echo $td_mod_single->td_post_theme_settings['td_subtitle']; ?></p>
@@ -101,25 +94,13 @@ echo $td_mod_single->get_social_sharing_top();
                     ?>
                         <div class="td-pb-span8 td-main-content" role="main">
                             <div class="td-ss-main-content">
+                                    <a class="sponsor-mobile sponsor-cta" href="/green-roads/">CLICK FOR <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> <strong>GREEN ROADS</strong> REVIEW</a>
                                 <?php
-                                if($sponsor):
-                                ?>
-                                    <a class="sponsor-mobile sponsor-cta" href="/deals/<?php echo $cta->slug ?>">CLICK FOR EXCLUSIVE <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
-                                <?php
-                                endif;
-                                ?>
-                                <?php
-                                locate_template('loop-single-7.php', true);
 
-                                if($sponsor):
+                                locate_template('loop-single-6.php', true);
                                 ?>
-                                    <a class="sponsor-cta" href="/deals/<?php echo $cta->slug ?>">CLICK FOR EXCLUSIVE <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
+                                    <a class="sponsor-cta" href="/green-roads/">CLICK FOR <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> <strong>GREEN ROADS</strong> REVIEW</a>
                                 <?php
-                                else:
-                                    ?>
-                                    <a class="sponsor-cta" href="/deals">CLICK HERE FOR EXCLUSIVE <img src="https://nutritionrealm.com/wp-content/uploads/2019/01/NR-LOGO-81X70.png" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
-                                <?php
-                                endif;
 
                                 comments_template('', true);
                                 ?>
@@ -127,17 +108,9 @@ echo $td_mod_single->get_social_sharing_top();
                         </div>
                         <div class="td-pb-span4 td-main-sidebar" role="complementary">
                             <div class="td-ss-main-sidebar">
-                            <?php
-                            if($sponsor):
-                            ?>
-                                <a class="sponsor-cta" href="/deals/<?php echo $cta->slug ?>">CLICK FOR EXCLUSIVE <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
-                            <?php
-                            else:
-                                ?>
-                                <a class="sponsor-cta" href="/deals">CLICK FOR EXCLUSIVE <img src="https://nutritionrealm.com/wp-content/uploads/2019/01/NR-LOGO-81X70.png" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
-                            <?php
-                            endif;
-                            ?>
+
+                               <a class="sponsor-cta" href="/green-roads/">CLICK FOR <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> <strong>GREEN ROADS</strong> REVIEW</a>
+
                             <?php
                                  if( $experts ):
                                  ?>
@@ -154,7 +127,7 @@ echo $td_mod_single->get_social_sharing_top();
                     <div class="td-pb-span8 td-main-content <?php echo $td_sidebar_position; ?>-content" role="main">
                         <div class="td-ss-main-content">
                             <?php
-                            locate_template('loop-single-7.php', true);
+                            locate_template('loop-single-6.php', true);
                             comments_template('', true);
                             ?>
                         </div>
@@ -172,7 +145,7 @@ echo $td_mod_single->get_social_sharing_top();
                     <div class="td-pb-span12 td-main-content" role="main">
                         <div class="td-ss-main-content">
                             <?php
-                            locate_template('loop-single-7.php', true);
+                            locate_template('loop-single-6.php', true);
                             comments_template('', true);
                             ?>
                         </div>

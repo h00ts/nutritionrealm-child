@@ -91,16 +91,19 @@ if (have_posts()) {
 $terms = get_terms(
     array(
         'taxonomy'   => 'deal_categories',
-        'hide_empty' => false,
+        'hide_empty' => true,
+        'exclude' => array( 642 ),
     )
 );
 
 if ( ! empty( $terms ) && is_array( $terms ) ) {
-    foreach ( $terms as $term ) { ?>
+    foreach ( $terms as $term ) {
+      ?>
         <a href="<?php echo esc_url( get_term_link( $term ) ) ?>">
             <?php echo $term->name; ?>
-        </a><?php
-    }
+        </a>
+        <?php
+  }
 }
 ?>
 </div>
@@ -112,7 +115,16 @@ if ( ! empty( $terms ) && is_array( $terms ) ) {
                     ?>
                     <div class="deals-wrap">
                         <?php
-                        $args = array( 'post_type' => 'nr_deals', 'orderby' => 'date', 'order' => 'ASC', 'posts_per_page' => -1 );
+                        $args = array( 'post_type' => 'nr_deals', 'orderby' => 'date', 'order' => 'ASC', 'posts_per_page' => -1,
+                        'tax_query'      => array(
+                          array(
+                              'taxonomy' => 'deal_categories',
+                              'terms' => 'unlisted',
+                              'field' => 'slug',
+                              'operator' => 'NOT IN',
+                              )
+                            )
+                       );
                         $loop = new WP_Query( $args );
                         while ( $loop->have_posts() ) : $loop->the_post();
                         ?>
@@ -143,8 +155,6 @@ if ( ! empty( $terms ) && is_array( $terms ) ) {
     </div>
 </div>
 
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-<script src="https://unpkg.com/flickity-bg-lazyload@1/bg-lazyload.js"></script>
-
 <?php
+
 get_footer();

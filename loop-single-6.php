@@ -31,13 +31,6 @@ if (have_posts()) {
     </footer>
 
 
-    <?php
-    if(!in_category('sponsored', $post)){
-        echo $td_mod_single->related_posts();
-    }
-
-    ?>
-
 <?php
 } else {
     //no posts

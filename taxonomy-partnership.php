@@ -11,6 +11,7 @@ $current_term_obj = get_queried_object();
 $tier = get_field('tier', $current_term_obj);
 $partnership_logo = get_field('logo', $current_term_obj);
 $header_image = get_field('header_image', $current_term_obj);
+$website = get_field('website', $current_term_obj);
 $hints = get_field('hints', $current_term_obj, false);
 
 $loop_module_id = td_util::get_taxonomy_option($current_term_obj->taxonomy, 'tds_taxonomy_page_layout');
@@ -58,7 +59,7 @@ if (empty($loop_module_id)) {
         endif;
         ?>
         <div class="partner-description">
-        <div class="premium-link"><a href="#" class="premium-link-btn">Visit <strong><?php echo $current_term_obj->name ?></strong> Site <i class="fa fa-external-link"></i></a></div>
+        <div class="premium-link"><a href="<?php echo $website ?>" class="premium-link-btn">Visit <strong><?php echo $current_term_obj->name ?></strong> Site <i class="fa fa-external-link"></i></a></div>
                 <p><?php echo $current_term_obj->description ?></p>
                 <?php
                 if($tier == 'high'):
@@ -97,7 +98,8 @@ if (empty($loop_module_id)) {
                     </div>
                     <div class="coupon-content">
                         <h3><?php the_field('partnership_deal'); ?></h3>
-                        <p style="padding:0 1em;font-size:"><?php the_excerpt(); ?></p>
+                        <p>Use code <strong><?php the_field('coupon_code') ?></strong> at checkout.</p>
+                        <p style="padding:0 1em;font-size:" class="coupon-content-description"><?php the_excerpt(); ?></p>
                         <a href="<?php the_field('coupon_url'); ?>" class="btn-deal-redeem" target="_blank"><i class="td-shopping-cart"></i> Redeem Now</a>
                     </div>
                 </div>
