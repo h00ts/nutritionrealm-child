@@ -10,6 +10,10 @@ Version:    9.6.1
 
 @import url("../Newspaper/style.css");
 
+html.is-animating .transition-fade{
+    opacity: 0;
+}
+
 html, body, div, p, a {
     font-family: 'Roboto', Arial, sans-serif;
 }
@@ -62,6 +66,11 @@ ul.sf-menu > .td-menu-item > a, .td-category a {
     border-radius: 0;
 }
 
+.nr_wrap {
+    width:100%;
+    max-width: 1440px;
+    margin:0 auto;
+}
 
 /***
 
@@ -90,12 +99,12 @@ FRONT PAGE
 }
 
 .nr_module-blue {
-    background:rgb(151,237,239);
+    background:#d0ecec;
 }
 
 
 .nr_ad {
-    background: #EFEFEF;
+    background: #FFF;
     padding: 1em 0;
 }
 
@@ -388,14 +397,34 @@ FRONT PAGE
 }
 
 .td-boxed-layout .td-container-wrap {
-    width: 100%;
+   width: 100%;
 }
 
-.nr_latest-category {
+.home .tdc-content-wrap {
+    width:100%;
+    max-width:1164px;
+    margin:0 auto;
+}
+
+.page-template-page-deals .tdc-content-wrap {
+    width:1280px;
+    margin:0 auto;
+ }
+
+.nr_latest-category, .nr_latest-category:link, .nr_latest-category:visited, .nr_latest-category:active {
     font-size: 2em;
     border:5px solid #2ad2c9;
+    color:#fff;
+    background:#2ad2c9;
     padding: .5em;
     display: block;
+    margin: .5em 0;
+}
+
+.nr_latest-category:hover {
+    border:5px solid #2ad2c9;
+    color:#2ad2c9;
+    background:#fff;
 }
 
 @media screen and (min-width: 768px) {
@@ -662,7 +691,6 @@ DEALS PAGES
 .deals-slider {
     margin:0 auto;
     width: 100%;
-    max-width: 1440px;
     height: 360px;
     overflow-x: auto;
     overflow-y:hidden;
@@ -1041,11 +1069,35 @@ EXPERTS PAGES
 
 ***/
 
+.page-template-page-experts {
+    background: #F5F7FB;
+}
+
+.nr_expert_content {
+    width:100%;
+    max-width:1440px;
+    margin:0 auto;
+    padding: 1em 2em;
+}
+
+.nr_expert_content p {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    line-height:1.8;
+    font-size: 1.25rem;
+    width:100%;
+    max-width: 900px;
+    margin:0 auto;
+    transition: opacity 0.4s ease 0.2s;
+}
+
 .experts-wrap {
     display: flex;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
+    width:100%;
+    max-width:1280px;
+    margin: 0 auto;
 }
 
 .single-expert {
@@ -1054,25 +1106,62 @@ EXPERTS PAGES
     padding:0 8px 8px 8px;
     min-width: 200px;
     margin: 0 auto 32px auto;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
     display:flex;
     vertical-align: middle;
 }
 
+.single-expert-img {
+  width:35%;
+  text-align:right;
+  z-index:1001;
+  display: flex;
+  align-items: center;
+}
+
+.single-expert-img img {
+    width: 100%;
+}
+
+.single-expert-content-wrap {
+  width:65%;
+  padding:0 1.5em;
+}
+
+.single-expert-content {
+  width:115%;
+  background:#FFF;
+  margin-left:-15%;
+  z-index:1000;
+  padding: 4em;
+  padding-left: 20%;
+  text-align: left;
+}
+
 .single-expert h3 {
-    margin:8px auto 0 auto;
-    text-align:center;
-    font-size:1.1em;
-    font-weight:bold;
-    line-height:1;
+    margin: 1em auto 0 auto;
+    text-align: left;
+    font-size: 2.8125rem;
+    font-weight: bold;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.single-expert h4 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2DB289;
+    font-family:'Open Sans', 'Roboto', sans-serif;
 }
 
 .single-expert p {
-    font-size:.8em;
-    margin-top:0;
-    margin-bottom:8px;
-    line-height:1.1;
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 8px;
+    line-height: 2;
+    font-family:'Open Sans', 'Roboto', sans-serif;
 }
 
 .single-expert h3 a {
@@ -1086,21 +1175,22 @@ EXPERTS PAGES
 
 .expert-social-links {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     flex-direction: row;
     flex-wrap: wrap;
+    float:right;
 }
 
 .expert-icon {
     display: flex;
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     margin: 4px;
 }
 
 .expert-icon svg {
     fill: #FFF;
-    width: 24px;
+    width: 32px;
 }
 
 .icon-website svg {
@@ -1138,10 +1228,10 @@ EXPERTS PAGES
     .deals-wrap {
         display:block;
     }
-    .single-deal h3, .single-expert h3 {
+    .single-deal h3 {
         font-size:1.5em;
     }
-    .single-deal img, .single-expert img {
+    .single-deal img {
         width:50%;
     }
     .btn-deal-redeem {
@@ -1153,7 +1243,7 @@ EXPERTS PAGES
 }
 
 @media screen and (min-width: 421px) {
-    .single-deal img, .single-expert img {
+    .single-deal img {
         width:75%;
     }
     .single-deal:hover, .single-deal:focus, .single-deal:active {
@@ -1166,7 +1256,7 @@ EXPERTS PAGES
 
 @media screen and (min-width: 768px) {
 
-    .single-deal, .single-expert {
+    .single-deal {
         width: 46%;
     }
 
@@ -1271,7 +1361,7 @@ EXPERTS PAGES
         width:100%;
         vertical-align: middle;
     }
-    .single-deal, .single-expert {
+    .single-deal {
         width: 23%;
         margin: 0 4px 32px 4px;
     }
@@ -1280,7 +1370,7 @@ EXPERTS PAGES
         margin: 1.5em auto;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1)
     }
-    .single-deal img, .single-expert img {
+    .single-deal img {
         width:100%;
     }
     .single-deal:hover, .single-deal:focus, .single-deal:active {
@@ -1293,7 +1383,7 @@ EXPERTS PAGES
 
 @media screen and (min-width: 960px) {
 
-    .single-deal, .single-expert {
+    .single-deal {
         width: 18%;
     }
     .single-premium {
@@ -1309,11 +1399,335 @@ EXPERTS PAGES
     }
 }
 
+.nr_review_stripe, .nr_expert_stripe {
+    width:100%;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+    transition: .4s;
+    opacity: 1;
+}
+.td-main-content-wrap {
+    transition: .4s;
+    opacity: 1;
+}
+html.is-animating .td-main-content-wrap, html.is-animating .nr_review_stripe{
+    opacity: 0;
+}
+.nr_review_column-30 {
+    width:100%;
+    max-width:432px;
+    padding:2em 0;
+
+}
+.nr_review_column-50, .nr_expert_column-50 {
+    width:100%;
+    max-width:720px;
+    background-size:cover;
+    background-position: center center;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    padding:2em 0;
+
+}
+.nr_review_column-70 {
+    width:100%;
+    max-width:1008px;
+    padding:2em 0;
+
+}
+
+.nr_review_product {
+
+}
+.nr_review_wrap, .nr_expert_wrap {
+    width:100%;
+    max-width:1440px;
+    margin:0 auto;
+    display:block;
+    justify-content:space-around;
+    flex-direction: row;
+}
+
+.nr_review_bar_wrap {
+    width:100%;
+    max-width:1440px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    flex-direction: row;
+}
+
+.nr_review_image {
+    overflow:hidden;
+    padding: 0;
+}
+
+@media screen and (min-width:768px) {
+    .nr_review_wrap {
+        display: flex;
+    }
+    .nr_review_review .nr_review_column-70 {
+        padding-right:3em;
+    }
+}
+
+.nr_review_slider {
+    width:100%;
+    max-width:1440px;
+    margin:0 auto;
+    padding-bottom:3em;
+}
+.nr_review_wrap_responsive {
+    display:block;
+}
+
+.nr_review_collection {
+    width:100%;
+    border: 16px solid transparent;
+    display: inline-block;
+}
+
+.flickity-resize .nr_review_collection {
+    min-height: 100%;
+  }
+
+.nr_review_collection-wrap {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:100%;
+    height:400px;
+}
+
+.nr_review_collection-image {
+    background-size:cover;
+    width:25%;
+    height:100%;
+    background-position:center center;
+}
+
+.nr_review_collection-content {
+    width:75%;
+    /*float:right;*/
+    /*padding-bottom:1.5em;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nr_review_collection-content p {
+    padding: 1em 2.5em 2em 2em;
+    text-align:justify;
+    overflow: auto;
+}
+
+.nr_review_content {
+    width:100%;
+    max-width:1440px;
+    margin:0 auto;
+    padding: 1em 2em;
+}
+.nr_review_content h1, .nr_expert_content h1 {
+    font-size:5em;
+    font-weight:bold;
+    text-transform: uppercase;
+    font-family: 'Oswald', 'Roboto', sans-serif;
+    line-height:1;
+    transition: opacity 0.4s ease 0.2s;
+}
+.nr_review_content h2, .nr_review_slider h2 {
+    font-size:3.125em;
+    font-weight:normal;
+    text-transform: uppercase;
+    font-family: 'Oswald', 'Roboto', sans-serif;
+    line-height:1.2;
+    transition: opacity 0.4s ease 0.2s;
+}
+.nr_review_content h3, .nr_review_slider h3 {
+    font-size:2em;
+    font-weight:normal;
+    font-family: 'Oswald', 'Roboto', sans-serif;
+    line-height:1.2;
+    padding:0 2rem;
+    transition: opacity 0.4s ease 0.2s;
+}
+.nr_review_content p {
+    line-height:1.8;
+    font-size: 1.25em;
+    width:100%;
+    max-width: 900px;
+    margin:0 auto;
+    transition: opacity 0.4s ease 0.2s;
+}
+
+.nr_review_content img {
+    width: 220px; padding-top: 0;
+}
+
+@media screen and (min-width:768px) {
+    .nr_review_content img {
+    padding-top: 4em;
+    }
+    .nr_review_content {
+        width:100%;
+        max-width:1440px;
+        margin:0 auto;
+        padding: 2.5em 2em 3em 2em;
+    }
+    .nr_review_collection {
+        width:50%;
+        border: 16px solid transparent;
+        display: inline-block;
+    }
+    .nr_review_collection-image {
+        background-size:cover;
+        width:55%;
+        height:100%;
+    }
+
+    .nr_review_collection-content {
+        width:45%;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .nr_hide-on-mobile {
+        display: none;
+    }
+    .nr_review_image {
+        overflow:hidden;
+        height: 250px;
+    }
+}
+
+.block {
+    background:#FFF;
+    padding:1.5em;
+}
+.nr_review_pro ul {
+    list-style-image: url("/wp-content/themes/Newspaper-child/svg/pro.svg");
+}
+.nr_review_con ul {
+    list-style-image: url("/wp-content/themes/Newspaper-child/svg/con.svg");
+}
+.nr_review_collection-list {
+    list-style-image: url("/wp-content/themes/Newspaper-child/svg/pro.svg");
+}
+.nr_review_stripe li {
+    font-size:1.125em;
+    line-height: 1.5;
+    padding:.5em;
+}
+.nr_review_cta, .nr_expert_cta {
+    margin: 2em auto 1em auto;
+    background: rgb(0,193,190);
+    background-image:linear-gradient(90deg, rgba(62,193,191,1) 0%, rgb(0,193,190) 100%);
+    color: #FFF;
+    padding: 1em;
+    font-size: 1.5em;
+    display: block;
+    width: 300px;
+    text-align: center;
+    transition: all 0.45s;
+}
+.nr_review_cta:hover, .nr_expert_cta:hover {
+    background-image:linear-gradient(90deg, rgba(62,193,191,1) 0%, rgba(0,169,80,1) 100%);
+}
+.nr_review_overall-rating h1 {
+    margin:auto;line-height:130px;text-align:center;color:rgb(0,193,190);
+    font-size:1.5em
+}
+.nr_review_product {
+    display:none;
+}
+.rating_bar {
+    width:18%;background:#EEE;height:15px;overflow:hidden;
+}
+.rating_bar_fill {
+    width:0;background:rgb(0,193,190);height:15px;
+    transition: all .8s;
+}
+
+.nr_review_coupon {
+        width:100%;
+        max-width: 635px;
+        background-color: #FFFFFF;
+        box-shadow: 0 5px 30px 0 rgba(0,0,0,0.05);
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding:20px;
+}
+
+.nr_review_coupon img {
+    /*height: 220px;*/
+    width: 100%;
+}
+
+.nr_review_coupon-value {
+    border: 1px solid #DDDDDD;	background-color: #FFFFFF;
+    font-family: 'Oswald', 'Roboto', sans-serif;
+    font-size: 40px;	font-weight: 500;	line-height: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align:center;
+}
+
+.nr_review_coupon-value span {
+    font-size: 90px;	font-weight: 500;	line-height: 100px;
+    color: #3FC1BF;
+}
+
+.nr_review_video_wrap {
+    margin-bottom:0;
+    background-size:cover;
+}
+
+@media screen and (min-width:768px){
+    .nr_review_wrap_responsive {
+        display:flex;
+    }
+    .nr_review_overall-rating h1 {
+        line-height:150px;
+        font-size:3em
+    }
+    .nr_review_product {
+        margin-top: -390px;
+        margin-left: -100px;
+        width: 180%;
+        display:block;
+    }
+    .nr_review_product-purerelief {
+        margin-top: -390px;
+        margin-right: -50px;
+        width: 180%;
+        display:block;
+    }
+    .nr_review_coupon {
+        height: 260px;
+        flex-direction: row;
+    }
+    .nr_review_coupon-wrap {
+        margin:5em 2em 2em 2em;
+    }
+    .nr_review_coupon img {
+        width: 58%;
+    }
+    .nr_review_coupon-value {
+        width: 30%;
+    }
+    .nr_review_video_wrap {
+        margin-bottom:5em;
+    }
+}
+
 
 
 /****************************/
 /****************************/
-/**    HUP's sucky Code    **/
+/**       HUP's  Code      **/
 /*       Moved from         */
 /*       Theme Panel        */
 /*       Custom CSS         */

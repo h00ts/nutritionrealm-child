@@ -14,7 +14,7 @@ $loop_module_id = td_util::get_option('tds_' . $template_id . '_page_layout', 15
 ?>
 
 <div class="nr_container nr_blog-index">
-    <section class="carousel nr_carousel" data-flickity='{"cellAlign": "left", "wrapAround": true, "autoPlay": true, "bgLazyLoad": true, "pageDots": false, "fade": true, "imagesLoaded": true}'>
+    <section class="carousel nr_carousel" data-flickity='{"cellAlign": "left", "wrapAround": true, "autoPlay": 9000, "bgLazyLoad": true, "pageDots": false, "fade": true, "imagesLoaded": true}'>
         <?php
             $args = array( 'meta_key' => 'featured_post', 'meta_value' => true, 'orderby' => 'date', 'order' => 'DESC', 'posts_per_page' => 3, 'cat' => -387 );
             $loop = new WP_Query( $args );
@@ -39,7 +39,6 @@ $loop_module_id = td_util::get_option('tds_' . $template_id . '_page_layout', 15
     <section class="nr_module nr_module-blue">
         <div class="nr_module-head">
             <h1 class="nr_heading">trending now</h1>
-            <div class="nr_pagination"></div>
         </div>
         <div class="nr_articles nr_articles-noflex" data-flickity='{"groupCells": true, "wrapAround": false, "autoPlay": false, "bgLazyLoad": false, "pageDots": false, "imagesLoaded": false}'>
         <?php
@@ -61,26 +60,38 @@ $loop_module_id = td_util::get_option('tds_' . $template_id . '_page_layout', 15
         </div>
     </section>
    <section class="nr_module nr_ad">
-        <div class="nr_sponsors">
+        <div class="nr_module-head">
+            <h1 class="nr_heading" style="margin-top:0;margin-bottom:0;">
+            our partners
+            </h1>
+        </div>
+        <div class="nr_sponsors" style="padding:2em 0;background:#FFF;display:flex;justify-content:space-evenly;">
             <?php
                 $term = get_field('partnership');
-                if( $term ): ?>
-                    <h2><?php echo $term->name; ?></h2>
-                    <p><?php echo $term->description; ?></p>
-                <?php endif; ?>
-               <div class="carousel" data-flickity='{"contain": true, "pageDots": false, "prevNextButtons": false, "adaptiveHeight": true, "draggable": false, "imagesLoaded": true }'>
+            $args = array(
+                'post_type' => 'nr_deals',
+                'posts_per_page' => -1,
+                'orderby' => 'date',
+                'order' => 'ASC',
+                'meta_query' => array(
+                  array(
+                    'key' => 'premium',
+                    'value' => true
+                  )
+                )
+              );
+              $the_query = new WP_Query($args);
+            if ($the_query->have_posts()) {
+            ?>
                  <?php
                    while ($the_query->have_posts()) {
                      $the_query->the_post();
                      $terms = get_the_terms( $post->ID , 'partnership' );
                      ?>
-                     <div class="carousel-cell" style="height:200px;background-image:url(<?php the_field('logo', $terms[0]); ?>)"></div>
+                     <div style="width:100%;max-width:250px;min-width:150px;margin:0 2em;height:150px;background-size:cover;background-image:url(<?php the_field('logo', $terms[0]); ?>);"></div>
                      <?php
                    }
-                 ?>
-               </div>
-             <?php
-           }
+             }
         wp_reset_postdata();
     ?>
         </div>
@@ -114,7 +125,6 @@ $loop_module_id = td_util::get_option('tds_' . $template_id . '_page_layout', 15
     <section class="nr_module nr_module-blue">
         <div class="nr_module-head">
             <h1 class="nr_heading">latest headlines</h1>
-            <div class="nr_pagination"></div>
         </div>
         <div class="nr_articles nr_articles-noflex" data-flickity='{"groupCells": true, "wrapAround": false, "autoPlay": false, "bgLazyLoad": false, "pageDots": false, "imagesLoaded": false}'>
         <?php
@@ -147,8 +157,10 @@ $loop_module_id = td_util::get_option('tds_' . $template_id . '_page_layout', 15
         <!--<iframe src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DWWBHeXOYZf74" width="270" height="585" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         -->    </section>
     <section class="nr_module nr_frontpage-instagram">
-        <div class="nr_heading" style="margin:0">
-            <h1 style="margin-top:0;margin-bottom:0;">FOLLOW US ON INSTAGRAM</h1>
+        <div class="nr_module-head">
+            <h1 class="nr_heading" style="margin-top:0;margin-bottom:0;">
+            follow us on instagram
+            </h1>
         </div>
         <div class="nr_articles nr_articles-noflex">
             <?php echo do_shortcode('[instagram-feed showheader=false showbio=true showfollow=false showbutton=false]'); ?>

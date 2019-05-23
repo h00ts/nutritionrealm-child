@@ -35,10 +35,10 @@ if (td_util::get_option('tds_logo_menu_upload') != '') {
         </div>
     </div>
 
-    <div class="hub_new_sub" style="background-color: black;">
-        <div class="_form_1" style="display: none;" id="hup_Subnew"></div>
+    <div class="hub_new_sub"  id="hup_Subnew" style="background-color: black;z-index:1000;">
+        <div class="klaviyo-form-KvPEK5"></div>
     </div>
-    
+
 	<div class="td-header-menu-wrap-full td-container-wrap new-hup-header <?php echo td_util::get_option('td_full_menu'); ?>">
         <?php
             $menuSearchClass = '';

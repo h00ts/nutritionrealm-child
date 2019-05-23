@@ -127,23 +127,25 @@ echo $td_mod_single->get_social_sharing_top();
                         </div>
                         <div class="td-pb-span4 td-main-sidebar" role="complementary">
                             <div class="td-ss-main-sidebar">
-                            <?php
-                            if($sponsor):
-                            ?>
-                                <a class="sponsor-cta" href="/deals/<?php echo $cta->slug ?>">CLICK FOR EXCLUSIVE <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
-                            <?php
-                            else:
-                                ?>
-                                <a class="sponsor-cta" href="/deals">CLICK FOR EXCLUSIVE <img src="https://nutritionrealm.com/wp-content/uploads/2019/01/NR-LOGO-81X70.png" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
-                            <?php
-                            endif;
-                            ?>
+                                <h3 style="margin: 0;font-weight: bold;color: #666;">Subscribe to our newsletter</h3>
+                            <div class="klaviyo-form-KvPEK5"></div>
                             <?php
                                  if( $experts ):
                                  ?>
                                     <p>Our expert collaborator <a href="/expert/<?php echo $experts->post_name; ?>"><?php echo $experts->post_title; ?></a> has reviewed this article.</p>
                                 <?php endif; ?>
                                 <?php get_sidebar(); ?>
+                                <?php
+                                if($sponsor):
+                                ?>
+                                    <a class="sponsor-cta" href="/deals/<?php echo $cta->slug ?>">CLICK FOR EXCLUSIVE <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
+                                <?php
+                                else:
+                                    ?>
+                                    <a class="sponsor-cta" href="/deals">CLICK FOR EXCLUSIVE <img src="https://nutritionrealm.com/wp-content/uploads/2019/01/NR-LOGO-81X70.png" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
+                                <?php
+                                endif;
+                                ?>
                             </div>
                         </div>
                     <?php
