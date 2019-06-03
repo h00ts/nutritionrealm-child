@@ -62,26 +62,6 @@ echo $td_mod_single->get_social_sharing_top();
 
 		        <div class="td-parallax-header">
 
-	                <header class="td-post-title">
-
-	                    <?php echo $td_mod_single->get_category(); ?>
-	                    <?php echo $td_mod_single->get_title();?>
-
-
-	                    <?php if (!empty($td_mod_single->td_post_theme_settings['td_subtitle'])) { ?>
-	                        <p class="td-post-sub-title"><?php echo $td_mod_single->td_post_theme_settings['td_subtitle']; ?></p>
-	                    <?php } ?>
-
-	                    <div class="td-module-meta-info">
-	                        <?php echo $td_mod_single->get_author();?>
-	                        <?php echo $td_mod_single->get_date(false);?>
-	                        <?php echo $td_mod_single->get_views();?>
-	                        <?php echo $td_mod_single->get_comments();?>
-	                    </div>
-
-	                </header>
-
-		            <div class="td-read-down"><a href="#"><i class="td-icon-read-down"></i></a></div>
 		        </div>
             </div>
 
@@ -101,6 +81,23 @@ echo $td_mod_single->get_social_sharing_top();
                     ?>
                         <div class="td-pb-span8 td-main-content" role="main">
                             <div class="td-ss-main-content">
+                            <header class="td-post-title">
+
+<?php echo $td_mod_single->get_category(); ?>
+<?php echo $td_mod_single->get_title();?>
+
+
+<?php if (!empty($td_mod_single->td_post_theme_settings['td_subtitle'])) { ?>
+    <p class="td-post-sub-title"><?php echo $td_mod_single->td_post_theme_settings['td_subtitle']; ?></p>
+<?php } ?>
+<div class="td-module-meta-info">
+    <?php echo $td_mod_single->get_author();?>
+    <?php echo $td_mod_single->get_date(false);?>
+    <?php echo $td_mod_single->get_views();?>
+    <?php echo $td_mod_single->get_comments();?>
+</div>
+
+</header>
                                 <?php
                                 if($sponsor):
                                 ?>
@@ -127,8 +124,9 @@ echo $td_mod_single->get_social_sharing_top();
                         </div>
                         <div class="td-pb-span4 td-main-sidebar" role="complementary">
                             <div class="td-ss-main-sidebar">
-                                <h3 style="margin: 0;font-weight: bold;color: #666;">Subscribe to our newsletter</h3>
+                                <h3 style="margin: 0;color: #333;">Achieving your health goals awaits you below. <br> <strong style="color:#3FC1BF">Subscription is free!</strong></h3>
                             <div class="klaviyo-form-KvPEK5"></div>
+                                <div style="width:100%;padding-bottom:24px;"></div>
                             <?php
                                  if( $experts ):
                                  ?>

@@ -257,12 +257,55 @@ function create_nr_brand_collections_custom_post_type() {
 	register_post_type( 'nr_brand_collections', $args );
 }
 
+/* Define Customer Reviews */
+function create_nr_customer_reviews_custom_post_type() {
+	$labels = array(
+		'name'                => __( 'Customer Reviews' ),
+		'singular_name'       => __( 'Cusomter Review'),
+		'menu_name'           => __( 'Customer Reviews'),
+		'parent_item_colon'   => __( 'Parent Brand'),
+		'all_items'           => __( 'All Customer Reviews'),
+		'view_item'           => __( 'View Customer Review'),
+		'add_new_item'        => __( 'Add New Customer Review'),
+		'add_new'             => __( 'Add New'),
+		'edit_item'           => __( 'Edit Brand'),
+		'update_item'         => __( 'Update Customer Review'),
+		'search_items'        => __( 'Search Customer Review'),
+		'not_found'           => __( 'Not Found'),
+		'not_found_in_trash'  => __( 'Not found in Trash')
+	);
+	$args = array(
+		'label'               => __( 'customer-review'),
+		'description'         => __( 'Customer Reviews'),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields'),
+		'public'              => false,
+		'hierarchical'        => false,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'has_archive'         => false,
+		'can_export'          => true,
+		'exclude_from_search' => true,
+	  'yarpp_support'       => true,
+		'publicly_queryable'  => true,
+    'capability_type'     => 'page',
+    'rewrite' => array('slug' => 'customer-review'), /* change to discounts at some point */
+    'menu_icon' => 'dashicons-people',
+    'menu_position' => 7,
+  );
+	register_post_type( 'nr_customer_reviews', $args );
+}
+
+
 /* Register Custom Post types & taxonomies */
 add_action( 'init', 'create_nr_brands_custom_post_type', 0 );
 add_action( 'init', 'create_nr_reviews_custom_post_type', 0 );
 add_action( 'init', 'create_nr_deals_custom_post_type', 0 );
 add_action( 'init', 'create_nr_brand_collections_custom_post_type', 0 );
 add_action( 'init', 'create_nr_experts_custom_post_type', 0 );
+add_action( 'init', 'create_nr_customer_reviews_custom_post_type', 0 );
 
 add_action( 'init', 'create_nr_deals_custom_taxonomy', 0 );
 add_action( 'init', 'create_nr_deals_categories_taxonomy', 0 );

@@ -25,7 +25,7 @@ if (have_posts()) {
       $the_query = new WP_Query($args);
       if ($the_query->have_posts()) {
        ?>
-          <div class="carousel deals-slider" data-flickity='{"cellAlign": "left", "wrapAround": true, "autoPlay": false, "bgLazyLoad": true, "pageDots": false, "draggable": false}'>
+          <div class="carousel deals-slider" data-flickity='{"cellAlign": "left", "wrapAround": true, "autoPlay": true, "bgLazyLoad": true, "pageDots": false, "draggable": false}'>
             <?php
               while ($the_query->have_posts()) {
                 $the_query->the_post();
@@ -86,7 +86,7 @@ if (have_posts()) {
 
 <div class="deal-cat-wrap">
 <div class="deal-categories">
-    <a href="/deals" class="deal-cat-active">All Deals</a>
+    <a href="#" class="deal-cat-active" id="deals_show_all">All Deals</a>
 <?php
 $terms = get_terms(
     array(
@@ -99,7 +99,7 @@ $terms = get_terms(
 if ( ! empty( $terms ) && is_array( $terms ) ) {
     foreach ( $terms as $term ) {
       ?>
-        <a href="<?php echo esc_url( get_term_link( $term ) ) ?>">
+        <a href="#" class="deal_cat_btn" id="deal_<?php echo $term->slug; ?>">
             <?php echo $term->name; ?>
         </a>
         <?php
@@ -128,7 +128,7 @@ if ( ! empty( $terms ) && is_array( $terms ) ) {
                         $loop = new WP_Query( $args );
                         while ( $loop->have_posts() ) : $loop->the_post();
                         ?>
-                            <div class="single-deal">
+                            <div class="single-deal<?php $turms = get_the_terms($post->ID, 'deal_categories'); foreach($turms as $turm): echo ' deal_' . $turm->slug; endforeach; ?>">
                                 <div>
                                 <a href="<?php the_field('coupon_url'); ?>" target="_blank"><img src="<?php the_field('image') ?>" alt="<?php the_title(); ?>"></a>
                                 <h3><?php the_field('partnership_deal'); ?></h3>
@@ -137,7 +137,7 @@ if ( ! empty( $terms ) && is_array( $terms ) ) {
                                 </div>
                                 <div>
                                 <a href="<?php the_field('coupon_url'); ?>" class="btn-deal-redeem" target="_blank">Redeem Now</a>
-                                <p style="margin-top:4px;margin-bottom:0;font-size:10px;overflow:hidden;"><?php echo get_the_term_list( $post->ID, 'partnership', 'More by <a href="'.$term_link.'">', ', ', '</a>' ) ?></p>
+                               <!-- <p style="margin-top:4px;margin-bottom:0;font-size:10px;overflow:hidden;"><?php echo get_the_term_list( $post->ID, 'partnership', 'More by <a href="'.$term_link.'">', ', ', '</a>' ) ?></p>-->
                                 </div>
                             </div>
                         <?php
@@ -146,14 +146,14 @@ if ( ! empty( $terms ) && is_array( $terms ) ) {
                     </div>
                 </div>
             </div>
-
-<?php
+ <?php
         endwhile;
     }
-?>
+   ?>
         </div>
     </div>
 </div>
+
 
 <?php
 

@@ -35,10 +35,10 @@ $footer = get_field('footer');
         <div class="nr_review_content" data-aos="fade-right">
         <h2>Quality (and transparency)</h2>
         <?php echo $quality['quality']; ?>
-        <a href="<?php echo $quality['quality_cta']; ?>" class="nr_review_cta" style="padding: .675em;margin: 1.5em 0 .2em 0;width: 55%;">Learn More</a>
+        <a href="<?php echo $quality['quality_cta']; ?>" target="_blank" class="nr_review_cta" style="padding: .675em;margin: 1.5em 0 .2em 0;width: 55%;">Learn More</a>
         </div>
     </div>
-    <div class="nr_review_column-50 nr_review_image" target="_blank" data-aos="fade-up" style="background-image:url('<?php echo $quality['quality_image']; ?>');">
+    <div class="nr_review_column-50 nr_review_image" data-aos="fade-up" style="background-image:url('<?php echo $quality['quality_image']; ?>');">
     </div>
     </div>
 </div>
@@ -51,7 +51,7 @@ $footer = get_field('footer');
         <div class="nr_review_content" data-aos="fade-left">
         <h2>Price</h2>
         <?php echo $price['price']; ?>
-        <a href="<?php echo $quality['quality_cta']; ?>" target="_blank" data-aos="fade-up" class="nr_review_cta" style="padding: .675em;margin: 1.5em 0 .2em 0;width: 55%;">Explore Now</a>
+        <a href="<?php echo $quality['quality_cta']; ?>" target="_blank" class="nr_review_cta" style="padding: .675em;margin: 1.5em 0 .2em 0;width: 55%;">Explore Now</a>
     </div>
         </div>
     </div>
@@ -91,22 +91,23 @@ $footer = get_field('footer');
     </div>
     <div class="nr_review_wrap nr_review_wrap_responsive" style="max-width: 1024px;">
         <div class="nr_review_column-70 nr_review_review-column">
-            <div class="nr_review_content" style="background:#FFF;margin-bottom: 3em;">
+            <div class="nr_review_content" style="background:#FFF;margin-bottom: 3em;padding:1em;">
                 <div class="nr_review_wrap">
-                    <div class="nr_review_column-70" style="margin:0 auto;width:55%;padding:0;display: flex;flex-direction: column;justify-content: center;">
+                    <div class="nr_review_column-70" style="margin:2em auto;width:55%;padding:0;display: flex;flex-direction: column;justify-content: center;">
 <img style="width:100%;text-align:center;margin:1em auto;" src="<?php foreach( $brand as $brnd ): echo get_field('logo', $brnd->ID); endforeach; ?>" alt="<?php the_title(); ?>">
                         <div style="text-align:center;width:100%">
-                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:#10cfc9;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
-                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:#10cfc9;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
-                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:#10cfc9;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
-                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:#10cfc9;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
-                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.21"><defs><style>.cls-1{fill:#10cfc9;}.cls-2{fill:#eaeaea;}</style></defs><title>Asset 5</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M398.53,0A37,37,0,0,0,363,23.57L285,214.14c-5,13.21-17.61,22-31.45,23.27L34.06,258.17c-32.71,3.14-45.92,44-21.39,66L178.09,469.5A37.62,37.62,0,0,1,190,506.61L140.35,710.38c-7.55,32.09,27.05,58.5,56,41.52l183-107.56a38.23,38.23,0,0,1,19.18-5.19Z"/><path class="cls-2" d="M398.53,0a37.05,37.05,0,0,1,35.54,23.57l78,190.57c5,13.21,17.61,22,31.44,23.27L763,258.17c32.71,3.14,45.91,44,21.38,66L619,469.5a37.6,37.6,0,0,0-12,37.11l49.69,203.77c7.54,32.09-27.05,58.5-56,41.52l-183-107.56a38.18,38.18,0,0,0-19.18-5.19Z"/></g></g></svg>
+                        <?php
+                        $ora = get_field('overall_rating');
+                        ?>
+                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>0): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
+                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>1): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
+                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>2): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
+                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>3): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
+                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.21"><defs><style>.cls-1{fill:<?php if($ora>4): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}.cls-2{fill:<?php if($ora>4.4): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 5</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M398.53,0A37,37,0,0,0,363,23.57L285,214.14c-5,13.21-17.61,22-31.45,23.27L34.06,258.17c-32.71,3.14-45.92,44-21.39,66L178.09,469.5A37.62,37.62,0,0,1,190,506.61L140.35,710.38c-7.55,32.09,27.05,58.5,56,41.52l183-107.56a38.23,38.23,0,0,1,19.18-5.19Z"/><path class="cls-2" d="M398.53,0a37.05,37.05,0,0,1,35.54,23.57l78,190.57c5,13.21,17.61,22,31.44,23.27L763,258.17c32.71,3.14,45.91,44,21.38,66L619,469.5a37.6,37.6,0,0,0-12,37.11l49.69,203.77c7.54,32.09-27.05,58.5-56,41.52l-183-107.56a38.18,38.18,0,0,0-19.18-5.19Z"/></g></g></svg>
                         </div>
                     </div>
-                    <div class="nr_review_column-30" style="width:30%;margin:0 auto;">
-                        <div class="nr_review_overall-rating" style="margin:0 auto;background-position:center;width:100%;height:100%;background-image:url(/wp-content/uploads/2019/05/TFC19-NR-Rating-Icons-01.png);background-size:cover;background-repeat:no-repeat">
-                            <h1><?php echo get_field('overall_rating'); ?></h1>
-                        </div>
+                    <div class="nr_review_column-30" style="width:30%;margin:0 auto;padding:0">
+                        <div class="progress-circle" data-progress="<?php echo get_field('overall_rating'); ?>"></div>
                     </div>
                 </div>
             </div>
@@ -206,28 +207,16 @@ $footer = get_field('footer');
         <h2 style="text-align:center;"><strong><?php the_title() ?></strong> Customer Ratings</h2>
     </div>
     <div class="nr_review_slider" data-flickity='{"cellAlign": "left", "wrapAround": true, "autoPlay": 7000, "pageDots": false,  "imagesLoaded": true}'>
+
             <div class="nr_review_content" style="width:100%;text-align:center">
             <p>Amazing benefits for anxiety and muscle aches. The best hemp salve I’ve tried so far. </p>
             <h4>Nicholas G.</h4><h5 style="margin:0;color:#3FC1BF"><strong>★★★★★</strong></h5>
             </div>
-
-            <div class="nr_review_content" style="width:100%;text-align:center">
-            <p>I use twice the dosage for the gummies, but they definitely have helped me sleep better at night. </p>
-            <h4>Vicky F.</h4><h5 style="margin:0;color:#3FC1BF"><strong>★★★★</strong></h5>
-            </div>
-
-            <div class="nr_review_content" style="width:100%;text-align:center">
-            <p>After suffering from RA since 2008 with injections, pain meds, infusion's hemp products from Pure Relief has enabled me to stop the pain meds and have a better life.</p>
-            <h4>James T.</h4><h5 style="margin:0;color:#3FC1BF"><strong>★★★★★</strong></h5>
-            </div>
-
-            <div class="nr_review_content"style="width:100%;text-align:center">
-            <p>I'm very pleased with Pure Relief. I recommend their products to everyone. I couldn't afford to pay the $175 my local hemp store is charging for 1,000 mg hemp oil. Pure Relief has a better product and it is priced around $80! Pure Relief's hemp oil has literally saved my life.</p>
-            <h4>Timothy U.</h4><h5 style="margin:0;color:#3FC1BF"><strong>★★★★★</strong></h5>
-            </div>
     </div>
 </div>
-
+<?php
+if($collections){
+?>
 <div class="nr_review_stripe" style="background:rgb(228,234,241);">
 <div class="nr_review_content" style="padding-bottom:.5em;padding-top:2em;">
     <h2 style="text-align:center;"><strong><?php the_title() ?></strong> Collections</h2>
@@ -257,7 +246,9 @@ $footer = get_field('footer');
     <?php endforeach; ?>
     </div>
 </div>
-
+<?php
+}
+?>
 <div id="discount-coupons" class="nr_review_stripe" style="background-size:cover;background-image:url('/wp-content/uploads/2019/05/Rectangle-Copy-12.jpg');padding-bottom:6em;">
     <div class="nr_review_content">
         <h2 style="text-align:center;"><strong><?php the_title() ?></strong> COUPONS</h2>
@@ -265,7 +256,7 @@ $footer = get_field('footer');
         <div class="nr_review_wrap">
         <?php foreach( $coupons as $coupon ): ?>
         <div class="nr_review_coupon-wrap">
-        <div class="nr_review_coupon"  data-aos="fade-up" data-aos-once="true">
+        <div class="nr_review_coupon">
        <img src="<?php echo get_field('image', $coupon->ID); ?>" alt="Pure Relief">
             <div class="nr_review_coupon-value">
                 <?php
