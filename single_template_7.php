@@ -11,6 +11,7 @@ global $loop_sidebar_position, $td_sidebar_position, $post;
 $experts = get_field('expert');
 $sponsor = get_field('sponsor');
 $cta = get_field('cta');
+$hide = get_field('hide');
 
 $td_mod_single = new td_module_single($post);
 
@@ -59,14 +60,10 @@ echo $td_mod_single->get_social_sharing_top();
             <?php
             endif;
             ?>
-
 		        <div class="td-parallax-header">
-
 		        </div>
             </div>
-
         </div>
-
         <div id="td-full-screen-header-image" class="td-image-gradient-style7">
             <img class="td-backstretch" src="<?php echo $td_post_featured_image; ?>">
         </div>
@@ -101,7 +98,7 @@ echo $td_mod_single->get_social_sharing_top();
                                 <?php
                                 if($sponsor):
                                 ?>
-                                    <a class="sponsor-mobile sponsor-cta" href="/deals/<?php echo $cta->slug ?>">CLICK FOR EXCLUSIVE <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
+                                    <a class="sponsor-mobile sponsor-cta" href="/review/<?php echo $cta->slug ?>">CLICK FOR <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> REVIEW</a>
                                 <?php
                                 endif;
                                 ?>
@@ -110,9 +107,9 @@ echo $td_mod_single->get_social_sharing_top();
 
                                 if($sponsor):
                                 ?>
-                                    <a class="sponsor-cta" href="/deals/<?php echo $cta->slug ?>">CLICK FOR EXCLUSIVE <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
+                                    <a class="sponsor-cta" href="/review/<?php echo $cta->slug ?>">CLICK FOR <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> REVIEW</a>
                                 <?php
-                                else:
+                                elseif(!$hide):
                                     ?>
                                     <a class="sponsor-cta" href="/deals">CLICK HERE FOR EXCLUSIVE <img src="https://nutritionrealm.com/wp-content/uploads/2019/01/NR-LOGO-81X70.png" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
                                 <?php
@@ -136,9 +133,9 @@ echo $td_mod_single->get_social_sharing_top();
                                 <?php
                                 if($sponsor):
                                 ?>
-                                    <a class="sponsor-cta" href="/deals/<?php echo $cta->slug ?>">CLICK FOR EXCLUSIVE <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
+                                    <a class="sponsor-cta" href="/review/<?php echo $cta->slug ?>">CLICK FOR <img src="<?php echo $sponsor ?>" alt="Exclusive Nutrition Realm Deals"> REVIEW</a>
                                 <?php
-                                else:
+                                elseif(!$hide):
                                     ?>
                                     <a class="sponsor-cta" href="/deals">CLICK FOR EXCLUSIVE <img src="https://nutritionrealm.com/wp-content/uploads/2019/01/NR-LOGO-81X70.png" alt="Exclusive Nutrition Realm Deals"> DEALS</a>
                                 <?php

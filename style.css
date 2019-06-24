@@ -80,6 +80,10 @@ ul.sf-menu > .td-menu-item > a, .td-category a {
     color:#222;
 }
 
+.td-post-template-7 .td-post-header {
+    height: 100%;
+}
+
 
 /***
 
@@ -244,7 +248,7 @@ FRONT PAGE
 
 .nr_article-content h1 {
     font-weight: bold;
-    font-size: 1.75em;
+    font-size: 1.5rem;
     line-height: 1.1;
     margin:.5em 0;
 }
@@ -417,7 +421,7 @@ FRONT PAGE
 }
 
 .page-template-page-deals .tdc-content-wrap {
-    width:1280px;
+    max-width:1280px;
     margin:0 auto;
  }
 
@@ -443,7 +447,7 @@ FRONT PAGE
     }
     .nr_article-20 {
         max-width: 320px;
-        margin: 1em 2em 1em 1em;
+        margin: 1em .7rem;
     }
     .nr_hero-article-content {
         width:45%;
@@ -465,6 +469,75 @@ POSTS
 
 ***/
 
+figure.image {
+    margin-bottom:18px;
+}
+
+figcaption {
+    padding: 0;
+    background: #f0f0f0;
+}
+
+.mepr-login-form-wrap {
+    margin-top: -300px;
+    padding-top: 200px;
+    position: relative;
+    /*z-index: 100;*/
+    display: block;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 60%, rgba(255,255,255,0.7) 80%, rgba(255,255,255,0) 100%);
+}
+
+.tax-partnership .mp_wrapper, .deals .mp_wrapper {
+    background: rgb(35,168,127);
+    border-radius: 10px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.tax-partnership .mp_wrapper .cc-error, .deals .mp_wrapper .cc-error {
+    color: #FFF;
+    background: #eb1c26;
+}
+
+.tax-partnership .mepr-submit, .deals .mepr-submit {
+    background: rgb(254,216,91);
+    color: #000;
+    border-radius: 15px;
+}
+
+.deals .mepr-submit {
+    font-size: .72rem;
+}
+
+.tax-partnership .mp_wrapper form {
+    text-align: center;
+    padding: 0;
+}
+
+.tax-partnership .mp-form-row:before {
+    content: "Subscribe for free to unlock exclusive deals from our partners!";
+    color: #FFF;
+    font-weight: bold;
+    font-size: .7rem;
+    line-height: 1;
+}
+
+.tax-partnership .mepr-form-input {
+    max-width: 80%;
+    margin: 1rem auto;
+}
+
+.deals .mp-form-row {
+    text-align:center;
+}
+
+.deals .mp-form-row:before {
+    content: "Unlock exclusive deals from our partners!";
+    color: #FFF;
+    font-weight: bold;
+    font-size: .9rem;
+    line-height: 1;
+}
 
 .sponsored-post {
     color:#FFF;
@@ -572,7 +645,7 @@ DEALS PAGES
 
 .partner-wrap {
     justify-content: space-around;
-    max-width:768px;
+    max-width:808px;
     margin:0 auto;
     width: 100%;
 }
@@ -956,19 +1029,19 @@ DEALS PAGES
 .single-premium {
     color:#000;
     background: rgb(62,193,191);
-    background: linear-gradient(0deg, rgba(62,193,191,1) 0%, rgba(0,169,80,1) 100%);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 100%, rgba(0,169,80,1) 0%);
     border-radius: 5px;
     padding:1px;
-    max-width: 640px;
+    max-width: 720px;
     margin:1.5em auto;
 }
 
 .single-premium h3 {
     margin:1em 0 .5em 0;
     text-align:left;
-    color:rgb(66, 197, 127);
+    color:rgb(63, 185, 184);
     font-weight: bold;
-    font-size:1.75em;
+    font-size:1.75rem;
 }
 
 .single-premium p {
@@ -1013,6 +1086,58 @@ DEALS PAGES
 
 .single-premium .coupon-content .coupon-content-description {
     display: none;
+}
+
+.tax-partnership .premium-tier-subscription {
+    background: rgb(254,216,91);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.tax-partnership .premium-tier-subscription p {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    padding: .5rem;
+}
+
+.tax-partnership .premium-tier-cta {
+    background: #FFF;
+    color: #000;
+    border-radius: 15px;
+    padding: .7rem;
+    margin: .5rem auto;
+    display: block;
+    max-width: 200px;
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+.deals .premium-tier-subscription {
+    background: rgb(254,216,91);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.deals .premium-tier-subscription p {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    padding: .5rem;
+}
+
+.deals .premium-tier-cta {
+    background: #FFF;
+    color: #000;
+    border-radius: 15px;
+    padding: .5rem;
+    margin: 0 auto;
+    display: block;
+    max-width: 200px;
+    font-size: .9rem;
+    font-weight: bold;
 }
 
 @-webkit-keyframes btn-ripple-out {
@@ -1066,7 +1191,11 @@ DEALS PAGES
     letter-spacing: 1px;
 }
 
-
+.deals .mepr-form-input {
+    border: 0;
+    border-radius: 3px;
+    margin: .5rem auto 0 auto;
+}
 
 
 
@@ -1197,30 +1326,33 @@ EXPERTS PAGES
     float:right;
 }
 
-.expert-icon {
+.single-expert .expert-icon {
     display: flex;
     width: 32px;
     height: 32px;
     margin: 4px;
 }
 
-.expert-icon svg {
+.single-expert .expert-icon svg {
     fill: #FFF;
     width: 32px;
+}
+
+.expert-card .expert-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 12px 2px 0 2px;
+}
+
+.expert-card .expert-icon svg {
+    width: 19px;
 }
 
 .icon-website svg {
     fill: #FFF;
     text-align:center;
     vertical-align: center;
-}
-
-.icon-linkedin svg {
-    fill: #0077B5;
-}
-
-.icon-facebook svg {
-    fill: #3B5998;
 }
 
 .icon-website {
@@ -1239,6 +1371,64 @@ EXPERTS PAGES
 
 .icon-instagram svg {
     fill: #FFF;
+}
+
+.expert-card .icon-instagram {
+    background: #FFF;
+}
+
+.expert-card .icon-instagram svg {
+    fill: #E4405F;
+}
+
+.expert-card .icon-website {
+    background: #FFF;
+}
+
+.expert-card .icon-website svg {
+    fill: #0077B5;
+}
+
+.expert-card {
+    display: flex;
+    width: 97%;
+    border-radius: 10px;
+    border: 1px solid #EEE;
+    box-shadow: 1px 3px 15px 1px rgba(0,0,0,0.06);
+    margin: 1rem;
+}
+
+.expert-card__photo {
+    padding: 1rem 0 1rem 1rem;
+    text-align: center;
+}
+
+.expert-card__content {
+    padding: 1rem;
+}
+
+.expert-card__content h1 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.expert-card__content strong {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+.expert-card__cta {
+    padding: .8rem;
+    color: #FFF;
+    background: #2ad2c9;
+    display: inline-block;
+}
+
+.ec-photo-wrap {
+    width:150px;
+    height:150px;
+    border-radius:75px;
+    overflow: hidden;
 }
 
 
@@ -1280,6 +1470,14 @@ EXPERTS PAGES
 }
 
 @media screen and (min-width: 768px) {
+
+    .expert-card {
+        width: 46%;
+    }
+
+    .tax-partnership .mp-form-row:before {
+        font-size: 1.5rem;
+    }
 
     .single-expert-content-wrap {
         width:65%;
@@ -1427,6 +1625,13 @@ EXPERTS PAGES
     .deal-categories a {
         width:auto;
     }
+    .tax-partnership .premium-tier-subscription p {
+        font-size: 2rem;
+    }
+
+    .tax-partnership .premium-tier-cta {
+        font-size: 1.5rem;
+    }
 }
 
 @media screen and (min-width: 960px) {
@@ -1438,6 +1643,9 @@ EXPERTS PAGES
         width:95%;
         margin: 1.5em auto;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1)
+    }
+    .single-premium h3 {
+        font-size: 2rem;
     }
     .single-deal:hover, .single-deal:focus, .single-deal:active {
         box-shadow: 0 8px 12px -8px rgba(0, 0, 0, 0.5);
@@ -1517,6 +1725,9 @@ html.is-animating .td-main-content-wrap, html.is-animating .nr_review_stripe{
     }
     .nr_review_review .nr_review_column-70 {
         padding-right:3em;
+    }
+    .tax-partnership .mp_wrapper form {
+        padding: 8px;
     }
 }
 
@@ -1716,16 +1927,22 @@ html.is-animating .td-main-content-wrap, html.is-animating .nr_review_stripe{
 .nr_review_coupon img {
     /*height: 220px;*/
     width: 100%;
+    margin: 0 auto;
+    max-width: 280px;
 }
 
 .nr_review_coupon-value {
     border: 1px solid #DDDDDD;	background-color: #FFFFFF;
     font-family: 'Oswald', 'Roboto', sans-serif;
-    font-size: 40px;	font-weight: 500;	line-height: 50px;
+    font-size: 2rem;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    text-align:center;
+    text-align: center;
+    margin: 1em auto;
+    padding: .75rem;
+    line-height: 1.2;
 }
 
 .nr_review_coupon-value span {
@@ -1769,10 +1986,14 @@ html.is-animating .td-main-content-wrap, html.is-animating .nr_review_stripe{
         margin:5em 2em 2em 2em;
     }
     .nr_review_coupon img {
-        width: 58%;
+        /*width: 58%;*/
+        padding: 0 1em 0 0;
     }
     .nr_review_coupon-value {
-        width: 30%;
+        /*width: 30%;*/
+        max-width: 200px;
+        height: 100%;
+        margin: 0 auto;
     }
     .nr_review_video_wrap {
         margin-bottom:5em;
@@ -1857,7 +2078,22 @@ html.is-animating .td-main-content-wrap, html.is-animating .nr_review_stripe{
     background-image: linear-gradient(90deg, #3FC1BF 50%, transparent 50%, transparent), linear-gradient(270deg, #3FC1BF 50%, #ddd 50%, #ddd);
   }
 
+  .td-footer-template-13 .footer-social-wrap .td-social-icon-wrap {
+    margin-left: 30px;
+  }
 
+  .td-footer-template-13 .footer-social-wrap .td-social-icon-wrap:first-child {
+    margin-left: 0;
+  }
+
+
+.icon-linkedin svg {
+    fill: #0077B5;
+}
+
+.icon-facebook svg {
+    fill: #3B5998;
+}
 
 
 
@@ -2165,7 +2401,7 @@ html.is-animating .td-main-content-wrap, html.is-animating .nr_review_stripe{
             }
             @media (max-width:767px) {
             .td-menu-background, .td-search-background {
-    background-image: url(https://nrthemeupdate.wpengine.com/wp-content/uploads/2019/03/1920x1080-black-solid-color-background.jpg);
+    background:#000;
 }
 }
 /* 13-mar-19 */

@@ -129,7 +129,7 @@ function create_nr_reviews_custom_post_type() {
 		'capability_type'     => 'page',
 		'rewrite' => array('slug' => 'review'),
     'menu_icon' => 'dashicons-clipboard',
-    'menu_position' => 7,
+    'menu_position' => 6,
   );
 	register_post_type( 'nr_reviews', $args );
 }
@@ -170,7 +170,7 @@ function create_nr_experts_custom_post_type() {
     'capability_type'     => 'page',
     'rewrite' => array('slug' => 'expert'),
     'menu_icon' => 'dashicons-id',
-    'menu_position' => 5,
+    'menu_position' => 6,
 );
 	register_post_type( 'nr_experts', $args );
 }
@@ -212,7 +212,7 @@ function create_nr_deals_custom_post_type() {
     'capability_type'     => 'page',
     'rewrite' => array('slug' => 'deal'), /* change to discounts at some point */
     'menu_icon' => 'dashicons-tickets',
-    'menu_position' => 8,
+    'menu_position' => 6,
   );
 	register_post_type( 'nr_deals', $args );
 }
@@ -252,7 +252,7 @@ function create_nr_brand_collections_custom_post_type() {
     'capability_type'     => 'page',
     'rewrite' => array('slug' => 'brand-collection'), /* change to discounts at some point */
     'menu_icon' => 'dashicons-carrot',
-    'menu_position' => 9,
+    'menu_position' => 6,
   );
 	register_post_type( 'nr_brand_collections', $args );
 }
@@ -292,8 +292,8 @@ function create_nr_customer_reviews_custom_post_type() {
 		'publicly_queryable'  => true,
     'capability_type'     => 'page',
     'rewrite' => array('slug' => 'customer-review'), /* change to discounts at some point */
-    'menu_icon' => 'dashicons-people',
-    'menu_position' => 7,
+    'menu_icon' => 'dashicons-groups',
+    'menu_position' => 6,
   );
 	register_post_type( 'nr_customer_reviews', $args );
 }
@@ -376,26 +376,70 @@ function nr_enqueue_klavyio() {
 	wp_enqueue_script( 'klavyio', 'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Lpi5jL#asyncload', [], false, true );
 }
 add_action( 'wp_enqueue_scripts', 'nr_enqueue_klavyio' );
-function nr_enqueue_slider_deals() {
+function nr_enqueue_styles_scripts() {
   if ( is_singular( 'nr_reviews' ) || is_page_template( 'page-deals.php' ) || is_tax( 'deal_categories' ) ) {
-		 wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.8.1/css/all.css' );
+		 wp_enqueue_style( 'fontawesome', '/wp-content/themes/Newspaper-child/css/fontawesome.css' );
  		  wp_enqueue_style( 'aoscss', '/wp-content/themes/Newspaper-child/css/aos.css' );
-			wp_enqueue_style( 'flickitycss', 'https://unpkg.com/flickity@2/dist/flickity.min.css' );
-			wp_enqueue_script( 'flickityjs', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', [], false, true);
-			wp_enqueue_script( 'flickity-lazyload', 'https://unpkg.com/flickity-bg-lazyload@1/bg-lazyload.js', [], false, true);
+			wp_enqueue_style( 'flickitycss', '/wp-content/themes/Newspaper-child/css/flickity.css' );
+			wp_enqueue_script( 'flickityjs', '/wp-content/themes/Newspaper-child/js/flickity.js', [], false, true);
+			wp_enqueue_script( 'flickity-lazyload', '/wp-content/themes/Newspaper-child/js/flickity-bg-lazyload.js', [], false, true);
 			wp_enqueue_script( 'aosjs', '/wp-content/themes/Newspaper-child/js/aos.js', [], false, true);
 			wp_enqueue_script( 'rellax', '/wp-content/themes/Newspaper-child/js/rellax.js', [], false, true);
   }
-}
-add_action( 'wp_enqueue_scripts', 'nr_enqueue_slider_deals' );
-function nr_enqueue_slider_front_page() {
+
   if ( is_front_page() ) {
-			wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.8.1/css/all.css' );
-			wp_enqueue_style( 'flickitycss', 'https://unpkg.com/flickity@2/dist/flickity.min.css' );
-			wp_enqueue_style( 'flickity-fade', 'https://unpkg.com/flickity-fade@1/flickity-fade.css' );
-			wp_enqueue_script( 'flickityjs', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', [], false, true);
-			wp_enqueue_script( 'flickity-fade', 'https://unpkg.com/flickity-fade@1/flickity-fade.js', [], false, true);
-			wp_enqueue_script( 'flickity-lazyload', 'https://unpkg.com/flickity-bg-lazyload@1/bg-lazyload.js', [], false, true);
+			wp_enqueue_style( 'fontawesome', '/wp-content/themes/Newspaper-child/css/fontawesome.css' );
+			wp_enqueue_style( 'flickitycss', '/wp-content/themes/Newspaper-child/css/flickity.css' );
+			wp_enqueue_style( 'flickity-fade', '/wp-content/themes/Newspaper-child/css/flickity-fade.css' );
+			wp_enqueue_script( 'flickityjs', '/wp-content/themes/Newspaper-child/js/flickity.js', [], false, true);
+			wp_enqueue_script( 'flickity-fade', '/wp-content/themes/Newspaper-child/js/flickity-fade.js', [], false, true);
+			wp_enqueue_script( 'flickity-lazyload', '/wp-content/themes/Newspaper-child/js/flickity-bg-lazyload.js', [], false, true);
+  }
+
+  if ( has_tag( ['premium', 'free', 'gold'] ) ){
+	wp_enqueue_script( 'jqmodal', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js', [], false, true);
+	wp_enqueue_style( 'jqmodal', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css');
   }
 }
-add_action( 'wp_enqueue_scripts', 'nr_enqueue_slider_front_page' );
+add_action( 'wp_enqueue_scripts', 'nr_enqueue_styles_scripts' );
+add_action( 'wp_enqueue_scripts', 'nr_deregister_styles_scripts', 20 );
+
+function nr_deregister_styles_scripts() {
+	wp_deregister_style('sb-font-awesome');
+	wp_dequeue_style('sb-font-awesome');
+}
+
+function mepr_disable_auto_login($auto_login, $membership_id, $mepr_user) {
+	return false;
+  }
+  add_filter('mepr-auto-login', 'mepr_disable_auto_login', 3, 3);
+
+
+  add_filter('woocommerce_billing_fields','wpb_custom_billing_fields');
+  // remove some fields from billing form
+  // ref - https://docs.woothemes.com/document/tutorial-customising-checkout-fields-using-actions-and-filters/
+  function wpb_custom_billing_fields( $fields = array() ) {
+	  unset($fields['billing_company']);
+	  unset($fields['billing_address_1']);
+	  unset($fields['billing_address_2']);
+	  unset($fields['billing_state']);
+	  unset($fields['billing_city']);
+	  unset($fields['billing_phone']);
+	  unset($fields['billing_postcode']);
+	  unset($fields['billing_country']);
+	  return $fields;
+  }
+// Removes Order Notes Title - Additional Information & Notes Field
+add_filter( 'woocommerce_enable_order_notes_field', '__return_false', 9999 );
+
+
+
+// Remove Order Notes Field
+add_filter( 'woocommerce_checkout_fields' , 'remove_order_notes' );
+
+function remove_order_notes( $fields ) {
+	 unset($fields['order']['order_comments']);
+	 unset($fields['order']['account_username']);
+	 unset($fields['order']['account_password']);
+     return $fields;
+}

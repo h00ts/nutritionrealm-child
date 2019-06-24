@@ -132,13 +132,42 @@ if ( ! empty( $terms ) && is_array( $terms ) ) {
                                 <div>
                                 <a href="<?php the_field('coupon_url'); ?>" target="_blank"><img src="<?php the_field('image') ?>" alt="<?php the_title(); ?>"></a>
                                 <h3><?php the_field('partnership_deal'); ?></h3>
+
+                                <?php
+                                $premium = get_field('premium');
+                                $premium_tier = get_field('premium_tier');
+                                if(!$premium){
+                                ?>
                                 <p><?php the_excerpt(); ?></p>
                                 <p>Use code <strong><?php the_field('coupon_code') ?></strong> at checkout.</p>
+                                <?php
+                                }else{
+                                  if($premium_tier == 'premium' || $premium_tier == ''){
+                                    ?>
+                                <?php echo do_shortcode('[mepr-membership-registration-form id="2241"]'); ?>
+                                    <?php
+                                  } elseif($premium_tier == 'gold') {
+                                    ?>
+                                    <div class="premium-tier-subscription">
+                                <svg style="width:5%;position:absolute;bottom:32px;right:32px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:rgba(255,255,255,.5);}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
+                                    <p>Premium Partner Subscription</p>
+                                    <a href="/register/premium" class="premium-tier-cta">Learn More</a>
                                 </div>
+                                    <?php
+                                  }
+                                }
+                                ?>
+                                </div>
+                                <?php
+                                if(!$premium){
+                                ?>
                                 <div>
                                 <a href="<?php the_field('coupon_url'); ?>" class="btn-deal-redeem" target="_blank">Redeem Now</a>
                                <!-- <p style="margin-top:4px;margin-bottom:0;font-size:10px;overflow:hidden;"><?php echo get_the_term_list( $post->ID, 'partnership', 'More by <a href="'.$term_link.'">', ', ', '</a>' ) ?></p>-->
                                 </div>
+                                <?php
+                                }
+                                ?>
                             </div>
                         <?php
                         endwhile;

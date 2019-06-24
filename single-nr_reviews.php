@@ -24,8 +24,18 @@ $footer = get_field('footer');
         locate_template('loop-single-review.php', true);
         ?>
     <div class="nr_review_stripe nr_review_video_wrap" style="background-image:url('<?php echo $video['background']; ?>');">
-        <div class="nr_review_content nr_review_image" style="height:360px;">
+        <div class="nr_review_content nr_review_image">
+            <?php
+            if ($video['video']){
+            ?>
+            <iframe style="width:100%;max-width:780px;margin:0 auto;display:block;" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $video['video']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <?php
+            } else {
+            ?>
             <a href="<?php echo $footer['cta'] ?>" target="_blank" class="nr_review_cta" style="margin-top:4em;font-weight:bold">SHOP <?php the_title(); ?> NOW </a>
+                <?php
+                }
+                ?>
         </div>
     </div>
 
@@ -99,11 +109,11 @@ $footer = get_field('footer');
                         <?php
                         $ora = get_field('overall_rating');
                         ?>
-                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>0): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
-                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>1): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
-                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>2): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
-                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>3): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
-                        <svg style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.21"><defs><style>.cls-1{fill:<?php if($ora>4): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}.cls-2{fill:<?php if($ora>4.4): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 5</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M398.53,0A37,37,0,0,0,363,23.57L285,214.14c-5,13.21-17.61,22-31.45,23.27L34.06,258.17c-32.71,3.14-45.92,44-21.39,66L178.09,469.5A37.62,37.62,0,0,1,190,506.61L140.35,710.38c-7.55,32.09,27.05,58.5,56,41.52l183-107.56a38.23,38.23,0,0,1,19.18-5.19Z"/><path class="cls-2" d="M398.53,0a37.05,37.05,0,0,1,35.54,23.57l78,190.57c5,13.21,17.61,22,31.44,23.27L763,258.17c32.71,3.14,45.91,44,21.38,66L619,469.5a37.6,37.6,0,0,0-12,37.11l49.69,203.77c7.54,32.09-27.05,58.5-56,41.52l-183-107.56a38.18,38.18,0,0,0-19.18-5.19Z"/></g></g></svg>
+                        <svg data-aos="zoom-in" data-aos-once="true" style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>0): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
+                        <svg data-aos="zoom-in" data-aos-once="true" data-aos-delay="100" style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>1): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
+                        <svg data-aos="zoom-in" data-aos-once="true" data-aos-delay="200" style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>2): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
+                        <svg data-aos="zoom-in" data-aos-once="true" data-aos-delay="300" style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.29"><defs><style>.cls-1{fill:<?php if($ora>3): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 6</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M762.39,258.19l-219.5-20.76a38,38,0,0,1-31.45-23.27L432.82,23.59c-12.58-31.45-57.24-31.45-69.82,0L285,214.16c-5,13.21-17.61,22-31.45,23.27L34.06,258.19c-32.71,3.14-45.92,44-21.39,66L178.09,469.52A37.61,37.61,0,0,1,190,506.62L140.35,710.4c-7.55,32.08,27.05,58.49,56,41.52l183-107.56a38.05,38.05,0,0,1,38.37,0l183,107.56c28.93,17,63.53-8.81,56-41.52L607.66,506.62a37.61,37.61,0,0,1,12-37.1L785,324.23C808.93,302.21,795.09,261.33,762.39,258.19Z"/></g></g></svg>
+                        <svg data-aos="zoom-in" data-aos-once="true" data-aos-delay="400" style="width:10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 797.07 757.21"><defs><style>.cls-1{fill:<?php if($ora>4): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}.cls-2{fill:<?php if($ora>4.4): echo '#10cfc9'; else: echo '#eaeaea'; endif; ?>;}</style></defs><title>Asset 5</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M398.53,0A37,37,0,0,0,363,23.57L285,214.14c-5,13.21-17.61,22-31.45,23.27L34.06,258.17c-32.71,3.14-45.92,44-21.39,66L178.09,469.5A37.62,37.62,0,0,1,190,506.61L140.35,710.38c-7.55,32.09,27.05,58.5,56,41.52l183-107.56a38.23,38.23,0,0,1,19.18-5.19Z"/><path class="cls-2" d="M398.53,0a37.05,37.05,0,0,1,35.54,23.57l78,190.57c5,13.21,17.61,22,31.44,23.27L763,258.17c32.71,3.14,45.91,44,21.38,66L619,469.5a37.6,37.6,0,0,0-12,37.11l49.69,203.77c7.54,32.09-27.05,58.5-56,41.52l-183-107.56a38.18,38.18,0,0,0-19.18-5.19Z"/></g></g></svg>
                         </div>
                     </div>
                     <div class="nr_review_column-30" style="width:30%;margin:0 auto;padding:0">
@@ -116,19 +126,19 @@ $footer = get_field('footer');
                 <h4>Quality <span style="float:right;"><?php echo $quality['quality_rating']; ?> / 5</span></h4>
                 <div class="nr_review_bar_wrap">
                     <div class="rating_bar" style="width:18%;background:#EEE;">
-                        <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" style="width:<?php if($quality['quality_rating']>=1): echo '100%'; else: echo '0%'; endif; ?>;"></div>
+                        <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" data-aos-anchor-placement="bottom-bottom" style="width:<?php if($quality['quality_rating']>=1): echo '100%'; else: echo '0%'; endif; ?>;"></div>
                     </div>
                     <div class="rating_bar" style="width:18%;background:#EEE;">
-                        <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" data-aos-delay="100" style="width:<?php if($quality['quality_rating']>=2): echo '100%'; else: echo '0%'; endif; ?>;"></div>
+                        <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" data-aos-anchor-placement="bottom-bottom" data-aos-delay="100" style="width:<?php if($quality['quality_rating']>=2): echo '100%'; else: echo '0%'; endif; ?>;"></div>
                     </div>
                     <div class="rating_bar" style="width:18%;background:#EEE;">
-                        <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" data-aos-delay="200" style="width:<?php if($quality['quality_rating']>=3): echo '100%'; else: echo '0%'; endif; ?>;"></div>
+                        <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" data-aos-anchor-placement="bottom-bottom" data-aos-delay="200" style="width:<?php if($quality['quality_rating']>=3): echo '100%'; else: echo '0%'; endif; ?>;"></div>
                     </div>
                     <div class="rating_bar" style="width:18%;background:#EEE;">
-                        <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" data-aos-delay="300" style="width:<?php if($quality['quality_rating']>=4): echo '100%'; else: echo '0%'; endif; ?>;"></div>
+                        <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" data-aos-anchor-placement="bottom-bottom" data-aos-delay="300" style="width:<?php if($quality['quality_rating']>=4): echo '100%'; else: echo '0%'; endif; ?>;"></div>
                     </div>
                     <div class="rating_bar" style="width:18%;background:#EEE;">
-                        <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" data-aos-delay="400" style="width:<?php if($quality['quality_rating']==5): echo '100%'; else: echo '0%'; endif; ?>;"></div>
+                        <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" data-aos-anchor-placement="bottom-bottom" data-aos-delay="400" style="width:<?php if($quality['quality_rating']==5): echo '100%'; else: echo '0%'; endif; ?>;"></div>
                     </div>
                 </div>
                 <h4>Price <span style="float:right;"><?php echo $price['price_rating']; ?> / 5</span></h4>
@@ -207,11 +217,36 @@ $footer = get_field('footer');
         <h2 style="text-align:center;"><strong><?php the_title() ?></strong> Customer Ratings</h2>
     </div>
     <div class="nr_review_slider" data-flickity='{"cellAlign": "left", "wrapAround": true, "autoPlay": 7000, "pageDots": false,  "imagesLoaded": true}'>
+            <?php
+            $customer_reviews = get_posts(array(
+                'post_type' => 'nr_customer_reviews',
+                'meta_query' => array(
+                    array(
+                        'key' => 'brand',
+                        'value' => '"' . get_the_ID() . '"',
+                        'compare' => 'LIKE'
+                    )
+                )
+            ));
 
+            if( $customer_reviews ):
+                foreach( $customer_reviews as $customer_review ): ?>
             <div class="nr_review_content" style="width:100%;text-align:center">
-            <p>Amazing benefits for anxiety and muscle aches. The best hemp salve I’ve tried so far. </p>
-            <h4>Nicholas G.</h4><h5 style="margin:0;color:#3FC1BF"><strong>★★★★★</strong></h5>
+            <?php $content = get_post_field('post_content', $customer_review->ID); ?>
+            <p><?php echo $content; ?> </p>
+            <h4><?php echo get_the_title( $customer_review->ID ); ?></h4><h5 style="margin:0;color:#3FC1BF;"><strong>
+            <?php
+                $rating = get_field('rating', $customer_review->ID);
+                for($i=0;$i<$rating;$i++){
+                ?>
+★
+                <?php
+                }
+            ?></strong></h5>
             </div>
+            <?php endforeach;
+                  endif;
+            ?>
     </div>
 </div>
 <?php
@@ -249,6 +284,9 @@ if($collections){
 <?php
 }
 ?>
+<?php
+if($coupons){
+?>
 <div id="discount-coupons" class="nr_review_stripe" style="background-size:cover;background-image:url('/wp-content/uploads/2019/05/Rectangle-Copy-12.jpg');padding-bottom:6em;">
     <div class="nr_review_content">
         <h2 style="text-align:center;"><strong><?php the_title() ?></strong> COUPONS</h2>
@@ -279,7 +317,9 @@ if($collections){
         <?php endforeach; ?>
     </div>
 </div>
-
+<?php
+}
+?>
 <div class="nr_review_stripe" style="background-size:cover;background-image:url('<?php echo $footer['background'] ?>');padding-top:90px;padding-bottom:200px;">
     <div class="nr_review_content">
         <h2 style="margin:0 auto;max-width:500px; text-align:center;">CLICK BELOW TO SHOP

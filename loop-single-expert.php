@@ -45,6 +45,7 @@ if (have_posts()) {
                     )
                 )
             ));
+            
             if( $reviewed ):
                 ?>
                 <section class="nr_module nr_module-blue">
