@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nutrition Realm Self-Improvement Guide</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style type="text/css">
+        body {
+            background-image: url('bg.png');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Roboto', Verdana, sans-serif;
+        }
+        .bg-overlay {
+            background: rgba(0,0,0,.55);
+        }
+        .header {
+            padding: 2rem;
+            text-align: center;
+        }
+        .logo {
+            width:120px;
+            padding: 0 0 1rem 0;
+        }
+        .countdown__box {
+            background:#10CFC9;
+            border-radius: 15px;
+            font-size: 4rem;
+            font-weight: bold;
+            text-align:center;
+            max-width:300px;
+            margin:0 auto;
+            line-height: 1;
+            padding: 1rem 1rem;
+            position: relative;
+        }
+        .days{
+            line-height: 1;
+        }
+        .hours {
+            line-height: 1;
+        }
+        .countdown h2 {
+            color: #FFF;
+            text-align: center;
+        }
+        .countdown__labels {
+            font-size: 1rem;
+            letter-spacing: 5px;
+        }
+        .hero {
+            position: relative;
+            padding: 1rem 0;
+            max-width: 500px;
+        }
+        .hero h1 {
+            color: #FFF;
+            position: absolute;
+            bottom: 16px;
+            font-size: 3.5rem;
+        }
+        .hero h1 span {
+            background: #10CFC9;
+        }
+        .hero__img {
+            width:100%;
+            max-width: 150px;
+            margin: 0 auto;
+            display: block;
+            padding:1rem 0;
+            float: right;
+        }
+        .cta {
+            margin: 1rem auto;
+        }
+        .cta .card {
+            background: #10CFC9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .steps {
+            margin: 2rem auto 0 auto;
+            color: #10CFC9;
+            text-align: center;
+            padding: 0 0 4rem 0;
+        }
+        .steps h3 {
+            text-align: center;
+            background: rgb(0,172,71);
+            color: #FFF;
+            padding: 1rem;
+        }
+        .icon, .picture {
+            border: #10CFC9 solid 5px;
+            border-radius: 75px;
+            height: 150px;
+            width: 150px;
+            margin: 2rem auto 0 auto;
+        }
+
+        .icon img {
+            padding: 1.5rem 2rem;
+        }
+
+        .col-sm:first-child > .icon > img {
+            padding: 1.5rem 1.6rem;
+        }
+
+        .cdlabel {
+            position: absolute;
+            right: 38px;
+            top: 14px;
+            transform: rotate(-90deg);
+            transform-origin: top right;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
+
+        .form-control {
+            border-radius: .5rem;
+            font-size: 1.5rem;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #39B28A;
+            border-color: #39B28A;
+            font-size: 1.5rem;
+            margin-top: 1.3rem;
+        }
+
+        @media screen and (min-width:768px) {
+            .hero h1 {
+                font-size: 5rem;
+            }
+        }
+    </style>
+
+<link crossorigin="anonymous" rel='stylesheet' id='google-fonts-style-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A300%2C400%2C400italic%2C500%2C500italic%2C700%2C900&#038;ver=9.6.1' type='text/css' media='all' />
+</head>
+<body>
+    <div class="container-fluid bg-overlay">
+        <header class="header">
+            <img src="logo.png" alt="" class="logo">
+        </header>
+        <section class="countdown container">
+            <div class="countdown__box">
+                <span class="days" id="days">--</span> : <span class="hours" id="hours">--</span>
+                <div class="countdown__labels">Days : Hours</div>
+                <div class="cdlabel">LEFT!</div>
+            </div>
+            <h2>ENDS WEDNESDAY!</h2>
+        </section>
+        <section class="hero container clearfix">
+            <img src="bottle.png" alt="" class="hero__img">
+            <h1>PB Fit <br> <span>GIVEAWAY</span></h1>
+        </section>
+        <section class="cta container">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center" style="margin-bottom:2rem;">Enter for a chance to win PB Fit's Chocolate Protein Powder!</h3>
+                    <div class="klaviyo-form-JKGmED"></div>
+                    <!--
+                    <form class="text-center">
+                        <div class="form-row align-items-center">
+                            <div class="col">
+                                <input type="text" class="form-control" id="yourName" aria-describedby="nameHelp" placeholder="Name">
+                            </div>
+                            <div class="col">
+                                <input type="email" class="form-control" id="yourEmail" aria-describedby="emailHelp" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-row align-items-center">
+                                <div class="col">
+                                        <button type="submit" class="btn btn-primary">ENTER NOW</button>
+                                </div>
+                        </div>
+                    </form>-->
+                </div>
+            </div>
+        </section>
+        <section class="steps">
+            <h3>Winner will be chosen on Wednesday at 10pm!</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                            <div class="icon">
+                                    <img src="email.png" alt="" class="img-fluid">
+                                </div>
+                        <h4>Enter your Email</h4>
+                    </div>
+                    <div class="col-sm">
+                        <div class="picture">
+                            <img src="picture.png" alt="" class="img-fluid">
+                        </div>
+                        <h4>Follow @meagenharriman</h4>
+                    </div>
+                    <div class="col-sm">
+                            <div class="icon">
+                                    <img src="icon.png" alt="" class="img-fluid">
+                                </div>
+                        <h4>Stay tuned to Meagen's instagram to see if you win!</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+    function makeTimer() {
+
+    	    var endTime = new Date("31 July 2019 22:00:00 GMT-05:00");
+        endTime = (Date.parse(endTime) / 1000);
+
+        var now = new Date();
+        now = (Date.parse(now) / 1000);
+
+        var timeLeft = endTime - now;
+
+        var days = Math.floor(timeLeft / 86400);
+        var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+        var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+        var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+        if (hours < "10") { hours = "0" + hours; }
+        if (minutes < "10") { minutes = "0" + minutes; }
+        if (seconds < "10") { seconds = "0" + seconds; }
+
+        $("#days").html(days);
+        $("#hours").html(hours);
+
+}
+
+setInterval(function() { makeTimer(); }, 1000);
+</script>
+<script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Lpi5jL"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132963691-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-132963691-1');
+</script>
+</body>
+</html>
