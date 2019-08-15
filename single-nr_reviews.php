@@ -61,7 +61,7 @@ $footer = get_field('footer');
         <div class="nr_review_content" data-aos="fade-left">
         <h2>Price</h2>
         <?php echo $price['price']; ?>
-        <a href="<?php echo $quality['quality_cta']; ?>" target="_blank" class="nr_review_cta" style="padding: .675em;margin: 1.5em 0 .2em 0;width: 55%;">Explore Now</a>
+        <a href="<?php echo $price['quality_cta']; ?>" target="_blank" class="nr_review_cta" style="padding: .675em;margin: 1.5em 0 .2em 0;width: 55%;">Explore Now</a>
     </div>
         </div>
     </div>
@@ -71,9 +71,9 @@ $footer = get_field('footer');
     <div class="nr_review_wrap">
     <div class="nr_review_column-50">
         <div class="nr_review_content" data-aos="fade-right">
-        <h2>Flavor</h2>
+        <h2><?php echo ($post->ID == 2424) ? 'Ease of Use' : 'Flavor'; ?></h2>
         <?php echo $flavor['flavor']; ?>
-        <a href="<?php echo $quality['quality_cta']; ?>" target="_blank" class="nr_review_cta" style="padding: .675em;margin: 1.5em 0 .2em 0;width: 55%;">Explore Now</a>
+        <a href="<?php echo $flavor['quality_cta']; ?>" target="_blank" class="nr_review_cta" style="padding: .675em;margin: 1.5em 0 .2em 0;width: 55%;">Explore Now</a>
         </div>
     </div>
     <div class="nr_review_column-50 nr_review_image" data-aos="fade-up" style="background-image:url('<?php echo $flavor['flavor_image']; ?>');">
@@ -89,7 +89,7 @@ $footer = get_field('footer');
         <div class="nr_review_content">
         <h2>Customer Service</h2>
         <?php echo $customer_service['customer_service']; ?>
-        <a href="<?php echo $quality['quality_cta']; ?>" target="_blank" class="nr_review_cta" style="padding: .675em;margin: 1.5em 0 .2em 0;width: 55%;">Learn More</a>
+        <a href="<?php echo $customer_service['quality_cta']; ?>" target="_blank" class="nr_review_cta" style="padding: .675em;margin: 1.5em 0 .2em 0;width: 55%;">Learn More</a>
         </div>
      </div>
     </div>
@@ -159,7 +159,7 @@ $footer = get_field('footer');
                         <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" data-aos-delay="400" style="width:<?php if($price['price_rating']==5): echo '100%'; else: echo '0%'; endif; ?>;"></div>
                     </div>
                 </div>
-                <h4>Flavor <span style="float:right;"><?php echo $flavor['flavor_rating']; ?> / 5</span></h4>
+                <h4><?php echo ($post->ID == 2424) ? 'Ease of Use' : 'Flavor'; ?>  <span style="float:right;"><?php echo $flavor['flavor_rating']; ?> / 5</span></h4>
                 <div class="nr_review_bar_wrap" style="justify-content:space-between;">
                     <div class="rating_bar" style="width:18%;background:#EEE;">
                         <div class="rating_bar_fill" data-aos="slide-right" data-aos-once="true" style="width:<?php if($flavor['flavor_rating']>=1): echo '100%'; else: echo '0%'; endif; ?>;"></div>

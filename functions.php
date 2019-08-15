@@ -30,7 +30,14 @@ function execute_php($html){
      return $html;
 }
 
-remove_filter( 'the_content', 'wpautop' );
+//remove_filter( 'the_content', 'wpautop' );
+function remove_empty_p( $content ) {
+	$content = force_balance_tags( $content );
+	$content = preg_replace( '#<p>\s*+(<br\s*/*>)?\s*</p>#i', '', $content );
+	$content = preg_replace( '~\s?<p>(\s| )+</p>\s?~', '', $content );
+	return $content;
+   }
+add_filter('the_content', 'remove_empty_p', 20, 1);
 remove_filter( 'the_excerpt', 'wpautop' );
 remove_filter ('acf_the_content', 'wpautop');
 
@@ -385,6 +392,10 @@ function nr_enqueue_styles_scripts() {
 			wp_enqueue_script( 'flickity-lazyload', '/wp-content/themes/Newspaper-child/js/flickity-bg-lazyload.js', [], false, true);
 			wp_enqueue_script( 'aosjs', '/wp-content/themes/Newspaper-child/js/aos.js', [], false, true);
 			wp_enqueue_script( 'rellax', '/wp-content/themes/Newspaper-child/js/rellax.js', [], false, true);
+  }
+
+  if(is_page_template('page-your-super.php')){
+		wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
   }
 
   if ( is_front_page() ) {

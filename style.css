@@ -85,6 +85,8 @@ ul.sf-menu > .td-menu-item > a, .td-category a {
 }
 
 
+
+
 /***
 
 FLEX LAYOUTS
@@ -1205,6 +1207,23 @@ EXPERTS PAGES
 
 ***/
 
+.frontpage-experts{
+display: flex;
+flex-flow: row wrap;
+justify-content: flex-start;
+align-content: space-evenly;
+width:100%;
+max-width:1280px;
+margin:0 auto;
+padding: 3rem 0;
+}
+
+.max-width-800 {
+    max-width:800px;
+    width:100%;
+    margin:0 auto;
+}
+
 .expert_profile-pic {
     width: 250px;
     margin: 0 auto;
@@ -1326,7 +1345,7 @@ EXPERTS PAGES
     float:right;
 }
 
-.single-expert .expert-icon {
+.single-expert .expert-icon{
     display: flex;
     width: 32px;
     height: 32px;
@@ -1338,14 +1357,15 @@ EXPERTS PAGES
     width: 32px;
 }
 
-.expert-card .expert-icon {
+.expert-card .expert-icon, .single-nr_experts .expert-icon {
     display: inline-block;
     width: 24px;
     height: 24px;
     margin: 12px 2px 0 2px;
+    line-height: 1;
 }
 
-.expert-card .expert-icon svg {
+.expert-card .expert-icon svg, .single-nr_experts .expert-icon svg {
     width: 19px;
 }
 
@@ -1373,6 +1393,7 @@ EXPERTS PAGES
     fill: #FFF;
 }
 
+
 .expert-card .icon-instagram {
     background: #FFF;
 }
@@ -1389,39 +1410,69 @@ EXPERTS PAGES
     fill: #0077B5;
 }
 
+.icon-linkedin svg {
+    fill: #0077B5;
+}
+
+.icon-facebook svg {
+    fill: #3B5998;
+}
+
 .expert-card {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 97%;
     border-radius: 10px;
-    border: 1px solid #EEE;
-    box-shadow: 1px 3px 15px 1px rgba(0,0,0,0.06);
-    margin: 1rem;
+    border: 10px solid #EEE;
+    /* box-shadow: 1px 3px 15px 1px rgba(0,0,0,0.06); */
+    /* margin: 1rem; */
+    background: #FFF;
 }
 
 .expert-card__photo {
-    padding: 1rem 0 1rem 1rem;
+    padding: 1rem 0 0 1rem;
     text-align: center;
+    margin: -50px auto 0 auto;
 }
 
 .expert-card__content {
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .expert-card__content h1 {
     margin: 0;
     font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .expert-card__content strong {
-    display: inline-block;
+    display: block;
     margin-bottom: .5rem;
+    font-weight: 100;
+    text-align: center;
+}
+
+.expert-card__content p {
+    font-size: .75rem;
 }
 
 .expert-card__cta {
     padding: .8rem;
     color: #FFF;
     background: #2ad2c9;
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    transition:all .5s;
+}
+
+.expert-card__cta:hover {
+    background:#000;
 }
 
 .ec-photo-wrap {
@@ -1471,8 +1522,9 @@ EXPERTS PAGES
 
 @media screen and (min-width: 768px) {
 
+
     .expert-card {
-        width: 46%;
+        flex-basis: 25%;
     }
 
     .tax-partnership .mp-form-row:before {
@@ -2085,15 +2137,6 @@ html.is-animating .td-main-content-wrap, html.is-animating .nr_review_stripe{
   .td-footer-template-13 .footer-social-wrap .td-social-icon-wrap:first-child {
     margin-left: 0;
   }
-
-
-.icon-linkedin svg {
-    fill: #0077B5;
-}
-
-.icon-facebook svg {
-    fill: #3B5998;
-}
 
 
 

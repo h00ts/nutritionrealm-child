@@ -48,7 +48,7 @@ echo $td_mod_single->get_social_sharing_top();
     <div class="td-full-screen-header-image-wrap">
 
         <div class="td-container td-post-header">
-        <div class="td-crumb-container"><a href="/" style="color:#FFF">Home</a></div>
+        <div class="td-crumb-container"></div>
 	        <div class="td-post-header-holder">
 
 
